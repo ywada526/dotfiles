@@ -1,0 +1,27 @@
+[user]
+	email = ywada526@gmail.com
+	name = ywada526
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore_global
+[color]
+	ui = auto
+[fetch]
+	prune = true
+[rebase]
+	autosqaush = true
+	autostash = true
+[pull]
+	rebase = true
+[push]
+	default = simple
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+	prompt = false
+[merge]
+	tool = vscode
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
+	prompt = false
