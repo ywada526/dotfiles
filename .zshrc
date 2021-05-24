@@ -12,7 +12,7 @@ setopt share_history
 # Word Characters
 autoload -Uz select-word-style
 select-word-style default
-zstyle ':zle:*' word-chars " /:@+|-"
+zstyle ':zle:*' word-chars " /:@+|-="
 zstyle ':zle:*' word-style unspecified
 
 # Binding Keys
