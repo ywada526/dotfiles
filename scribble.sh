@@ -5,6 +5,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/i
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew bundle --global
 
+# fzf
+$(brew --prefix)/opt/fzf/install
+
 # anyenv
 anyenv init
 

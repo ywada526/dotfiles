@@ -87,5 +87,3 @@ PROMPT+='%c '
 PROMPT+='$DRACULA_GIT_STATUS'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-eval "$(anyenv init -)"
