@@ -62,10 +62,10 @@ if type brew &>/dev/null; then
 fi
 
 # Packages
-source ~/.zinit/bin/zinit.zsh
+source ~/.zinit/zinit.zsh
 
 zinit ice wait lucid atinit'zicompinit; zicdreplay'
-zinit light zdharma/fast-syntax-highlighting
+zinit light zdharma-continuum/fast-syntax-highlighting
 
 zinit ice wait lucid atload'_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
@@ -88,4 +88,8 @@ PROMPT+='$DRACULA_GIT_STATUS'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval "$(anyenv init -)"
+if [ -d $HOME/.anyenv ]
+then
+  export PATH="$HOME/.anyenv/bin:$PATH"
+  eval "$(anyenv init -)"
+fi
