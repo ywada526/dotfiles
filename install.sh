@@ -6,6 +6,7 @@ DOTFILES_DIR=$(dirname "$0")
 ln -snfv "$DOTFILES_DIR"/Brewfile ~/Brewfile
 ln -snfv "$DOTFILES_DIR"/.gitconfig ~/.gitconfig
 ln -snfv "$DOTFILES_DIR"/.gitignore_global ~/.gitignore_global
+ln -snfv "$DOTFILES_DIR"/.hyper.js ~/.hyper.js
 ln -snfv "$DOTFILES_DIR"/.tmux.conf ~/.tmux.conf
 ln -snfv "$DOTFILES_DIR"/.vimrc ~/.vimrc
 ln -snfv "$DOTFILES_DIR"/.zprofile ~/.zprofile
