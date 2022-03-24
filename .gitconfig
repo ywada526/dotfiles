@@ -25,3 +25,5 @@
 [mergetool "vscode"]
 	cmd = code --wait $MERGED
 	prompt = false
+[rerere]
+	enabled = true
