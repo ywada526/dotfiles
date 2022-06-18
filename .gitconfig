@@ -9,7 +9,7 @@
 [fetch]
 	prune = true
 [rebase]
-	autosqaush = true
+	autosquash = true
 	autostash = true
 [pull]
 	rebase = true
