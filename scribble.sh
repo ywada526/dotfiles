@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # zinit
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 
@@ -6,14 +8,13 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/i
 brew bundle --global
 
 # fzf
-$(brew --prefix)/opt/fzf/install
+"$(brew --prefix)"/opt/fzf/install
 
 # anyenv
 anyenv init
 
 # link to dropbox
-ln -snfv $HOME/dropbox/settings/.zsh_history $HOME/.zsh_history
+ln -snfv ~/dropbox/settings/.zsh_history ~/.zsh_history
 
-mkdir -p $HOME/.config
-ln -snfv $HOME/dropbox/settings/karabiner $HOME/.config/karabiner
-
+mkdir -p ~/.config
+ln -snfv ~/dropbox/settings/karabiner ~/.config/karabiner
