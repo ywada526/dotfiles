@@ -1,3 +1,8 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Control Options
 setopt no_flow_control
 setopt no_beep
@@ -93,3 +98,11 @@ then
   export PATH="$HOME/.anyenv/bin:$PATH"
   eval "$(anyenv init -)"
 fi
+
+export PATH="$HOME/.poetry/bin:$PATH"
+export ENHANCD_COMMAND=cdd
+
+eval "$(direnv hook zsh)"
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
