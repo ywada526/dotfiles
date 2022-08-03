@@ -19,6 +19,9 @@ case $(uname) in
     apt-get install fzf less zsh -y
     ;;
   "Darwin" )
+    open ~/dotfiles/MyProfile.terminal
+    defaults write com.apple.terminal "Default Window Settings" -string "MyProfile"
+    defaults write com.apple.Terminal "Startup Window Settings" -string "MyProfile"
     if ! which brew; then
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
