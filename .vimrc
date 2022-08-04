@@ -10,3 +10,4 @@ set hlsearch
 set wildmenu
 set wildmode=list:longest,full
 set clipboard=unnamed,unnamedplus
+set scroll=3
