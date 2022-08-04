@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Bell</key>
+	<false/>
 	<key>CursorBlink</key>
 	<false/>
 	<key>Font</key>
@@ -19,6 +21,8 @@
 	<real>1.004032258064516</real>
 	<key>ProfileCurrentVersion</key>
 	<real>2.0699999999999998</real>
+	<key>VisualBellOnlyWhenMuted</key>
+	<false/>
 	<key>name</key>
 	<string>MyProfile</string>
 	<key>type</key>
