@@ -32,5 +32,6 @@ ln -snfv "$DOTFILES_DIR"/.tool-versions ~/.tool-versions
 ln -snfv "$DOTFILES_DIR"/.vimrc ~/.vimrc
 ln -snfv "$DOTFILES_DIR"/.zprofile ~/.zprofile
 ln -snfv "$DOTFILES_DIR"/.zshrc ~/.zshrc
+ln -snfv "$DOTFILES_DIR"/.zshrc_aliases_functions ~/.zshrc_aliases_functions
 
 (! echo "$SHELL" | grep -q zsh) && chsh -s "$(which zsh)"

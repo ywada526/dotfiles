@@ -1,0 +1,12 @@
+# shellcheck disable=SC2148
+
+alias d="docker"
+alias dc="docker compose"
+alias hb="hub browse"
+pr() {
+  if [ -z "$1" ]; then hub browse -- pull/"$1"
+  else hub browse -- pull/"$(git symbolic-ref --short HEAD)"
+  fi
+}
+alias tree='tree -I "node_modules" -Ca'
+alias gibo="docker run --rm simonwhitaker/gibo"

@@ -13,7 +13,7 @@ github = "b4b4r07/enhancd"
 
 [plugins.enhancd-post]
 inline = """
-  export ENHANCD_COMMAND=d;
+  export ENHANCD_COMMAND=c;
   export ENHANCD_FILTER="fzf --height 25% --reverse";
 """
 
@@ -35,8 +35,10 @@ inline = """
 """
 
 [plugins.ohmyzsh-aliases-pre]
-# ref: https://github.com/ohmyzsh/ohmyzsh/blob/97134d1eed19b72a9c4bf90a2effa847221608bf/plugins/kubectl/kubectl.plugin.zsh#L5
 inline = """
+  # ref: https://github.com/ohmyzsh/ohmyzsh/blob/97134d1eed19b72a9c4bf90a2effa847221608bf/plugins/docker-compose/docker-compose.plugin.zsh#L2
+  alias docker-compose="docker compose"
+  # ref: https://github.com/ohmyzsh/ohmyzsh/blob/97134d1eed19b72a9c4bf90a2effa847221608bf/plugins/kubectl/kubectl.plugin.zsh#L5
   export ZSH_CACHE_DIR=~/.cache/zsh
   mkdir -p "$ZSH_CACHE_DIR/completions"
 """
@@ -44,11 +46,11 @@ inline = """
 [plugins.ohmyzsh-aliases]
 github = "ohmyzsh/ohmyzsh"
 use = [
-  "plugins/common-aliases/common-aliases.plugin.zsh",
-  "plugins/git/git.plugin.zsh",
-  "plugins/docker/docker.plugin.zsh",
-  "plugins/docker-compose/docker-compose.plugin.zsh",
-  "plugins/kubectl/kubectl.plugin.zsh",
+  "plugins/common-aliases/common-aliases.plugin.zsh", # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/common-aliases
+  "plugins/git/git.plugin.zsh", # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git
+  "plugins/docker/docker.plugin.zsh", # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker
+  "plugins/docker-compose/docker-compose.plugin.zsh", # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker-compose
+  "plugins/kubectl/kubectl.plugin.zsh", # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/kubectl
 ]
 
 [plugins.zsh-autosuggestions]
