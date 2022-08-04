@@ -1,0 +1,60 @@
+[plugins.dracula-zsh]
+github = "dracula/zsh"
+use = ["dracula.zsh-theme"]
+
+[plugins.dracula-zsh-post]
+inline='''
+  ZSH_THEME_GIT_PROMPT_PREFIX="%F{default}("
+  PROMPT='%(1V:%F{yellow}:%(?:%F{green}:%F{red}))%B%# %F{default}%c $DRACULA_GIT_STATUS'
+'''
+
+[plugins.enhancd]
+github = "b4b4r07/enhancd"
+
+[plugins.enhancd-post]
+inline = """
+  export ENHANCD_COMMAND=d;
+  export ENHANCD_FILTER="fzf --height 25% --reverse";
+"""
+
+[plugins.fzf]
+github = "junegunn/fzf"
+use = [
+  "completion.zsh",
+  "key-bindings.zsh",
+]
+
+# PATH=~/.sheldon/repos/github.com/junegunn/fzf/bin:$PATH
+[plugins.fzf-post]
+inline = """
+  if (! type fzf &>/dev/null 2>&1); then
+    ~/.sheldon/repos/github.com/junegunn/fzf/install --bin
+    mkdir -p ~/.local/bin
+    cp ~/.sheldon/repos/github.com/junegunn/fzf/bin/fzf ~/.local/bin
+  fi
+"""
+
+[plugins.ohmyzsh-aliases-pre]
+# ref: https://github.com/ohmyzsh/ohmyzsh/blob/97134d1eed19b72a9c4bf90a2effa847221608bf/plugins/kubectl/kubectl.plugin.zsh#L5
+inline = """
+  export ZSH_CACHE_DIR=~/.cache/zsh
+  mkdir -p "$ZSH_CACHE_DIR/completions"
+"""
+
+[plugins.ohmyzsh-aliases]
+github = "ohmyzsh/ohmyzsh"
+use = [
+  "plugins/common-aliases/common-aliases.plugin.zsh",
+  "plugins/git/git.plugin.zsh",
+  "plugins/docker/docker.plugin.zsh",
+  "plugins/docker-compose/docker-compose.plugin.zsh",
+  "plugins/kubectl/kubectl.plugin.zsh",
+]
+
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+use = ["zsh-autosuggestions.zsh"]
+
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+use = ["zsh-syntax-highlighting.zsh"]

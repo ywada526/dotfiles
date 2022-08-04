@@ -1,108 +1,27 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+bindkey -e
 
-# Control Options
-setopt no_flow_control
-setopt no_beep
-setopt ignore_eof
+setopt no_flow_control no_beep ignore_eof
 
-# History Options
 HISTSIZE=1000000 SAVEHIST=1000000
-setopt extended_history
-setopt hist_reduce_blanks
-setopt share_history
+setopt extended_history hist_reduce_blanks share_history
 
-# Word Characters
 autoload -Uz select-word-style
 select-word-style default
 zstyle ':zle:*' word-chars " /:@+|-="
 zstyle ':zle:*' word-style unspecified
 
-# Binding Keys
-bindkey -e
-
-# Aliases and Functions
-alias ks='kubectl'
-alias dk='docker'
-alias dc='docker-compose'
-
-alias ls='ls -GF'
-alias la='ls -la'
-
-alias glg='git log --graph --oneline'
-
-alias tree='tree -I "node_modules" -Ca'
-alias gibo='docker run --rm simonwhitaker/gibo'
-
-gho() {
-  hub browse -- pull/$(git symbolic-ref --short HEAD)
-}
-
-ghoi() {
-  branches=$(git branch -r | egrep -v '\*|develop|master' | sed -e 's/origin\///g' -e 's/^[ \t]*//')
-  if [ -z $branches ]; then
-    echo 'There are no remote branches'
-    return 1
-  fi
-  branch=$(echo -n $branches | fzf)
-  if [ -z $branch ]; then
-    return 1
-  fi
-  hub browse -- pull/$branch
-}
-
-delete-all-branch() {
-  git branch --merged | egrep -v '\*|develop|master' | xargs git branch -d
-}
-
-# Completions
 zstyle ':completion:*:default' menu true select
 zstyle ':completion:*' format '%F{blue}%BCompleting %d%b%f'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-fi
+(type brew &>/dev/null 2>&1) && FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+autoload -Uz compinit && compinit
 
-# Packages
-source ~/.zinit/zinit.zsh
-
-zinit ice wait lucid atinit'zicompinit; zicdreplay'
-zinit light zdharma-continuum/fast-syntax-highlighting
-
-zinit ice wait lucid atload'_zsh_autosuggest_start'
-zinit light zsh-users/zsh-autosuggestions
-
-zinit ice wait lucid blockf atpull'zinit creinstall -q .'
-zinit light zsh-users/zsh-completions
-
-zinit ice wait lucid pick'init.sh'
-zinit light b4b4r07/enhancd
-ENHANCD_FILTER=fzf
-
-zinit ice lucid
-zinit light dracula/zsh
-setopt prompt_subst
-ZSH_THEME_GIT_PROMPT_PREFIX="%F{default}("
-PROMPT='%(1V:%F{yellow}:%(?:%F{green}:%F{red}))%B%# '
-PROMPT+='%F{default}$(dracula_context)'
-PROMPT+='%c '
-PROMPT+='$DRACULA_GIT_STATUS'
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-if [ -d $HOME/.anyenv ]
-then
-  export PATH="$HOME/.anyenv/bin:$PATH"
-  eval "$(anyenv init -)"
-fi
-
-export PATH="$HOME/.poetry/bin:$PATH"
-export ENHANCD_COMMAND=cdd
-
-eval "$(direnv hook zsh)"
+(type sheldon &>/dev/null 2>&1) && eval "$(sheldon source)"
+(type direnv &>/dev/null 2>&1) && eval "$(direnv hook zsh)"
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
