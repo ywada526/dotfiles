@@ -2,11 +2,15 @@
 
 alias d="docker"
 alias dc="docker compose"
-alias hb="hub browse"
+alias gho="gh repo view -w"
 pr() {
-  if [ -z "$1" ]; then hub browse -- pull/"$1"
-  else hub browse -- pull/"$(git symbolic-ref --short HEAD)"
+  if [ -n "$1" ]; then gh pr view -w "$1"
+  else gh pr view -w "$(git symbolic-ref --short HEAD)"
   fi
+}
+pri() {
+  pr="$(gh pr list | fzf)"
+  gh pr view -w "${pr%%	*}"
 }
 alias tree='tree -I "node_modules" -Ca'
 alias gibo="docker run --rm simonwhitaker/gibo"
