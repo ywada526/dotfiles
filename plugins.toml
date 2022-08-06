@@ -41,6 +41,8 @@ inline = """
   # ref: https://github.com/ohmyzsh/ohmyzsh/blob/97134d1eed19b72a9c4bf90a2effa847221608bf/plugins/kubectl/kubectl.plugin.zsh#L5
   export ZSH_CACHE_DIR=~/.cache/zsh
   mkdir -p "$ZSH_CACHE_DIR/completions"
+  # ref: https://github.com/ohmyzsh/ohmyzsh/blob/fcd7da3aec8315178991aa25d57dacfc6c331ac6/plugins/common-aliases/common-aliases.plugin.zsh#L5
+  alias ls='ls --color=auto'
 """
 
 [plugins.ohmyzsh-aliases]
