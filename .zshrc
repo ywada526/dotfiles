@@ -20,11 +20,11 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 (type brew &>/dev/null 2>&1) && FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 autoload -Uz compinit && compinit
 
-. ~/.zshrc_aliases_functions
-
 (type brew &>/dev/null 2>&1) && [[ -f $(brew --prefix asdf)/libexec/asdf.sh ]] && . $(brew --prefix asdf)/libexec/asdf.sh
 (type sheldon &>/dev/null 2>&1) && eval "$(sheldon source)"
 (type direnv &>/dev/null 2>&1) && eval "$(direnv hook zsh)"
+
+. ~/.zshrc_aliases_functions
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"

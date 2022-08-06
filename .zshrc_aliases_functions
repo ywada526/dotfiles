@@ -3,6 +3,7 @@
 alias d="docker"
 alias dc="docker compose"
 alias gho="gh repo view -w"
+alias ggf="ggfl" # https://github.com/ohmyzsh/ohmyzsh/blob/97134d1eed19b72a9c4bf90a2effa847221608bf/plugins/git/git.plugin.zsh#L150-L158
 pr() {
   if [ -n "$1" ]; then gh pr view -w "$1"
   else gh pr view -w "$(git symbolic-ref --short HEAD)"
