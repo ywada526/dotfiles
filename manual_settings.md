@@ -10,7 +10,7 @@ defaults write com.apple.Terminal "Startup Window Settings" -string "MyProfile"
 
 ```sh
 brew install ghq; brew install --cask 1password alfred docker google-chrome \
-  google-drive google-japanese-ime karabiner-elements lunar slack visual-studio-code
+  google-japanese-ime karabiner-elements lunar slack visual-studio-code
 ```
 
 ## Link to Dropbox settings

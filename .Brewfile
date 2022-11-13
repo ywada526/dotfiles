@@ -36,9 +36,9 @@ cask "discord"
 cask "docker"
 cask "fig"
 cask "firefox"
+cask "flyctl"
 cask "google-chrome"
 cask "google-cloud-sdk"
-cask "google-drive"
 cask "google-japanese-ime"
 cask "karabiner-elements"
 cask "kindle"
@@ -48,5 +48,6 @@ cask "slack"
 cask "tableplus"
 cask "visual-studio-code"
 cask "zoom"
+mas "GoodNotes", id: 1444383602
 mas "LINE", id: 539883307
 mas "Magnet", id: 441258766
