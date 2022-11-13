@@ -8,14 +8,14 @@ inline='''
   PROMPT='%(1V:%F{yellow}:%(?:%F{green}:%F{red}))%B%# %F{default}%c $DRACULA_GIT_STATUS'
 '''
 
-[plugins.enhancd]
-github = "b4b4r07/enhancd"
-
-[plugins.enhancd-post]
+[plugins.enhancd-pre]
 inline = """
   export ENHANCD_COMMAND=c;
   export ENHANCD_FILTER="fzf --height 25% --reverse";
 """
+
+[plugins.enhancd]
+github = "b4b4r07/enhancd"
 
 [plugins.fzf]
 github = "junegunn/fzf"
@@ -42,7 +42,7 @@ inline = """
   export ZSH_CACHE_DIR=~/.cache/zsh
   mkdir -p "$ZSH_CACHE_DIR/completions"
   # ref: https://github.com/ohmyzsh/ohmyzsh/blob/fcd7da3aec8315178991aa25d57dacfc6c331ac6/plugins/common-aliases/common-aliases.plugin.zsh#L5
-  alias ls='ls --color=auto'
+  alias ls='ls --color'
 """
 
 [plugins.ohmyzsh-aliases]
