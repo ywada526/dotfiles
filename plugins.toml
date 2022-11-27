@@ -24,13 +24,12 @@ use = [
   "key-bindings.zsh",
 ]
 
-# PATH=~/.sheldon/repos/github.com/junegunn/fzf/bin:$PATH
 [plugins.fzf-post]
 inline = """
   if (! type fzf &>/dev/null 2>&1); then
-    ~/.sheldon/repos/github.com/junegunn/fzf/install --bin
+    ~/.local/share/sheldon/repos/github.com/junegunn/fzf/install --bin
     mkdir -p ~/.local/bin
-    cp ~/.sheldon/repos/github.com/junegunn/fzf/bin/fzf ~/.local/bin
+    cp ~/.local/share/sheldon/repos/github.com/junegunn/fzf/bin/fzf ~/.local/bin
   fi
 """
 

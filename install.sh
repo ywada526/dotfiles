@@ -25,8 +25,8 @@ ln -snfv "$DOTFILES_DIR"/.Brewfile ~/.Brewfile
 ln -snfv "$DOTFILES_DIR"/.Brewfile.lock.json ~/.Brewfile.lock.json
 ln -snfv "$DOTFILES_DIR"/.gitconfig ~/.gitconfig
 ln -snfv "$DOTFILES_DIR"/.gitignore_global ~/.gitignore_global
-mkdir -p ~/.sheldon
-ln -snfv "$DOTFILES_DIR"/plugins.toml ~/.sheldon/plugins.toml
+mkdir -p ~/.config/sheldon
+ln -snfv "$DOTFILES_DIR"/plugins.toml ~/.config/sheldon/plugins.toml
 ln -snfv "$DOTFILES_DIR"/.tmux.conf ~/.tmux.conf
 ln -snfv "$DOTFILES_DIR"/.tool-versions ~/.tool-versions
 ln -snfv "$DOTFILES_DIR"/.vimrc ~/.vimrc
