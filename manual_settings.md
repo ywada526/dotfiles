@@ -39,6 +39,7 @@ Preferences > Advanced > Set preferences folder...
 brew bundle --global
 ```
 
-### Install Visual Studio Code Insiders
+### Manual Install
 
-https://code.visualstudio.com/insiders/
+- https://code.visualstudio.com/insiders/
+- https://www.google.com/chrome/canary/
