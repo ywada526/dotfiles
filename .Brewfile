@@ -59,3 +59,4 @@ mas "GoodNotes", id: 1444383602
 mas "LINE", id: 539883307
 mas "Magnet", id: 441258766
 mas "Smart Countdown Timer", id: 1410709951
+mas "Trello", id: 1278508951
