@@ -33,5 +33,7 @@ ln -snfv "$DOTFILES_DIR"/.vimrc ~/.vimrc
 ln -snfv "$DOTFILES_DIR"/.zprofile ~/.zprofile
 ln -snfv "$DOTFILES_DIR"/.zshrc ~/.zshrc
 ln -snfv "$DOTFILES_DIR"/.zshrc_aliases_functions ~/.zshrc_aliases_functions
+mkdir -p ~/.warp
+ln -snfv "$DOTFILES_DIR"/.warp/workflows ~/.warp
 
 (! echo "$SHELL" | grep -q zsh) && chsh -s "$(which zsh)"

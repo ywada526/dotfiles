@@ -1,0 +1,11 @@
+name: kubectl exec
+command: |
+  k exec -n {{namespace}} -it $(k get po -l app={{app}} -o jsonpath="{.items[0].metadata.name}" -n {{namespace}}) -c {{app}} -- {{command}}
+tags:
+  - kubectl
+description: kubectl exec w/ namespace and app
+arguments:
+  - name: namespace
+  - name: app
+  - name: command
+    default_value: bash
