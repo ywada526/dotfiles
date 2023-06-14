@@ -9,7 +9,7 @@ defaults write com.apple.Terminal "Startup Window Settings" -string "MyProfile"
 ## Install Priority Apps
 
 ```sh
-brew install ghq; brew install --cask 1password alfred docker google-chrome \
+brew install ghq; brew install --cask 1password alfred docker dropbox google-chrome \
   google-japanese-ime karabiner-elements lunar slack visual-studio-code
 ```
 
@@ -18,25 +18,25 @@ brew install ghq; brew install --cask 1password alfred docker google-chrome \
 ### zsh history
 
 ```sh
-ln -snfv ~/Library/CloudStorage/Dropbox/settings/zsh/.zsh_history ~/.zsh_history
+ln -snfv ~/Dropbox/settings/zsh/.zsh_history ~/.zsh_history
 ```
 
 ### karabiner
 
 ```sh
 mkdir -p ~/.config
-ln -snfv ~/Library/CloudStorage/Dropbox/settings/karabiner ~/.config/karabiner
+ln -snfv ~/Dropbox/settings/karabiner ~/.config/karabiner
 ```
 
 ### Alfred
 
 Preferences > Advanced > Set preferences folder...
-`~/Library/CloudStorage/Dropbox/settings/alfred`
+`~/Dropbox/settings/alfred`
 
 ### iTerm
 
 General > Preferences
-`~/Library/CloudStorage/Dropbox/settings/iterm`
+`~/Dropbox/settings/iterm`
 
 ## Homebrew bundle
 
