@@ -14,6 +14,7 @@ case $(uname) in
   "Darwin" )
     (! type brew &>/dev/null 2>&1) &&
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      eval "$(/opt/homebrew/bin/brew shellenv)"
     (! type sheldon &>/dev/null 2>&1) &&
       brew install sheldon
     ;;
