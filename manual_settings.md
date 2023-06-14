@@ -18,20 +18,25 @@ brew install ghq; brew install --cask 1password alfred docker google-chrome \
 ### zsh history
 
 ```sh
-ln -snfv ~/Dropbox/settings/zsh/.zsh_history ~/.zsh_history
+ln -snfv ~/Library/CloudStorage/Dropbox/settings/zsh/.zsh_history ~/.zsh_history
 ```
 
 ### karabiner
 
 ```sh
 mkdir -p ~/.config
-ln -snfv ~/Dropbox/settings/karabiner ~/.config/karabiner
+ln -snfv ~/Library/CloudStorage/Dropbox/settings/karabiner ~/.config/karabiner
 ```
 
 ### Alfred
 
 Preferences > Advanced > Set preferences folder...
-`~/Dropbox/settings/alfred`
+`~/Library/CloudStorage/Dropbox/settings/alfred`
+
+### iTerm
+
+General > Preferences
+`~/Library/CloudStorage/Dropbox/settings/iterm`
 
 ## Homebrew bundle
 
