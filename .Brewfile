@@ -33,30 +33,28 @@ cask "altair-graphql-client"
 cask "anki"
 cask "appcleaner"
 cask "betterdisplay"
-cask "cleanshot"
+cask "bettertouchtool"
 cask "deepl"
 cask "discord"
 cask "docker"
 cask "dotnet-sdk"
-cask "fig"
 cask "firefox"
 cask "flyctl"
 cask "google-chrome"
 cask "google-cloud-sdk"
 cask "google-japanese-ime"
+cask "iterm2"
 cask "karabiner-elements"
 cask "kindle"
 cask "lunar"
 cask "ngrok"
-cask "notion"
-cask "obsidian"
 cask "slack"
 cask "tableplus"
 cask "visual-studio-code"
-cask "warp"
 cask "zoom"
 mas "GoodNotes", id: 1444383602
 mas "LINE", id: 539883307
 mas "Magnet", id: 441258766
 mas "Smart Countdown Timer", id: 1410709951
 mas "Trello", id: 1278508951
+mas "Outlook", id: 985367838
