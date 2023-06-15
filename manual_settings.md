@@ -48,3 +48,4 @@ brew bundle --global
 
 - https://code.visualstudio.com/insiders/
 - https://www.google.com/chrome/canary/
+- https://www.homerow.app/
