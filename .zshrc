@@ -22,3 +22,4 @@ autoload -Uz compinit && compinit
 (type direnv &>/dev/null 2>&1) && eval "$(direnv hook zsh)"
 
 . ~/.zshrc_aliases_functions
+[ -f ~/.zshrc_private ] && . ~/.zshrc_private
