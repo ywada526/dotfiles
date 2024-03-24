@@ -13,18 +13,15 @@ brew install ghq; brew install --cask 1password alfred docker dropbox google-chr
   google-japanese-ime karabiner-elements lunar slack visual-studio-code
 ```
 
-## Link to Dropbox settings
+## Link to Dropbox Settings
 
-### zsh history
+### Symbolic Link
 
 ```sh
 ln -snfv ~/Dropbox/settings/zsh/.zsh_history ~/.zsh_history
-```
-
-### karabiner
-
-```sh
-mkdir -p ~/.config
+ln -snfv ~/Dropbox/settings/homebrew/Brewfile ~/.Brewfile
+ln -snfv ~/Dropbox/settings/homebrew/Brewfile.lock.json ~/.Brewfile.lock.json
+dir -p ~/.config
 ln -snfv ~/Dropbox/settings/karabiner ~/.config/karabiner
 ```
 
@@ -44,8 +41,12 @@ General > Preferences
 brew bundle --global
 ```
 
-### Manual Install
+## Manual Install
 
 - https://code.visualstudio.com/insiders/
 - https://www.google.com/chrome/canary/
 - https://www.homerow.app/
+
+## Private Settings
+
+https://github.com/ywada526/dotfiles-private
