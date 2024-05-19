@@ -34,6 +34,7 @@ Preferences > Advanced > Set preferences folder...
 
 General > Preferences
 `~/Dropbox/settings/iterm`
+Save changes Automatically
 
 ## Homebrew bundle
 
