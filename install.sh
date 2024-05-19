@@ -22,8 +22,6 @@ case $(uname) in
 esac
 
 DOTFILES_DIR=$(cd "$(dirname "$0")" && pwd)
-ln -snfv "$DOTFILES_DIR"/.Brewfile ~/.Brewfile
-ln -snfv "$DOTFILES_DIR"/.Brewfile.lock.json ~/.Brewfile.lock.json
 ln -snfv "$DOTFILES_DIR"/.gitconfig ~/.gitconfig
 ln -snfv "$DOTFILES_DIR"/.gitignore_global ~/.gitignore_global
 mkdir -p ~/.config/sheldon
