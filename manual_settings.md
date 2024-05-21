@@ -24,6 +24,7 @@ ln -snfv ~/Dropbox/settings/homebrew/Brewfile ~/.Brewfile
 ln -snfv ~/Dropbox/settings/homebrew/Brewfile.lock.json ~/.Brewfile.lock.json
 dir -p ~/.config
 ln -snfv ~/Dropbox/settings/karabiner ~/.config/karabiner
+ln -snfv ~/Dropbox/settings/raycast/script-commands ~/ghq/github.com/raycast/script-commands
 ```
 
 ### Alfred
