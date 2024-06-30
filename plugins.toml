@@ -28,8 +28,7 @@ use = [
 inline = """
   if (! type fzf &>/dev/null 2>&1); then
     ~/.local/share/sheldon/repos/github.com/junegunn/fzf/install --bin
-    mkdir -p ~/.local/bin
-    cp ~/.local/share/sheldon/repos/github.com/junegunn/fzf/bin/fzf ~/.local/bin
+    sudo cp ~/.local/share/sheldon/repos/github.com/junegunn/fzf/bin/fzf /usr/local/bin
   fi
 """
 

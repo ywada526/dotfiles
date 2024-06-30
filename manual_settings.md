@@ -10,7 +10,7 @@ defaults write com.apple.Terminal "Startup Window Settings" -string "MyProfile"
 
 ```sh
 brew install ghq; brew install --cask 1password alfred docker dropbox google-chrome \
-  google-japanese-ime karabiner-elements lunar slack visual-studio-code
+  iterm2 karabiner-elements lunar raycast slack visual-studio-code
 ```
 
 ## Link to Dropbox Settings
@@ -20,12 +20,16 @@ brew install ghq; brew install --cask 1password alfred docker dropbox google-chr
 ```sh
 ln -snfv ~/Dropbox/settings/macnative/LocalDictionary ~/Library/Spelling/LocalDictionary
 ln -snfv ~/Dropbox/settings/zsh/.zsh_history ~/.zsh_history
-ln -snfv ~/Dropbox/settings/homebrew/Brewfile ~/.Brewfile
-ln -snfv ~/Dropbox/settings/homebrew/Brewfile.lock.json ~/.Brewfile.lock.json
-dir -p ~/.config
+ln -snfv ~/Dropbox/settings/homebrew/.Brewfile ~/.Brewfile
+ln -snfv ~/Dropbox/settings/homebrew/.Brewfile.lock.json ~/.Brewfile.lock.json
+mkdir -p ~/.config
 ln -snfv ~/Dropbox/settings/karabiner ~/.config/karabiner
-ln -snfv ~/Dropbox/settings/raycast/script-commands ~/ghq/github.com/raycast/script-commands
 ```
+
+### Raycast
+
+Script Commands > Add Directories
+`~/Dropbox/settings/raycast/script-commands`
 
 ### Alfred
 
@@ -34,7 +38,7 @@ Preferences > Advanced > Set preferences folder...
 
 ### iTerm
 
-General > Preferences
+General > Settings
 `~/Dropbox/settings/iterm`
 Save changes Automatically
 
