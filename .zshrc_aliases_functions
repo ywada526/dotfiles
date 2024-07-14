@@ -16,3 +16,4 @@ pri() {
 alias tree='tree -I "node_modules" -Ca'
 alias gibo="docker run --rm simonwhitaker/gibo"
 alias act='act --container-architecture linux/amd64'
+alias -g CD='; cd $_'
