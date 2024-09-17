@@ -1,3 +1,5 @@
+shell = "zsh"
+
 [plugins.dracula-zsh]
 github = "dracula/zsh"
 use = ["dracula.zsh-theme"]
