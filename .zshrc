@@ -17,7 +17,7 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 (type brew &>/dev/null 2>&1) && FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 autoload -Uz compinit && compinit
 
-(type brew &>/dev/null 2>&1) && [[ -f $(brew --prefix asdf)/libexec/asdf.sh ]] && . $(brew --prefix asdf)/libexec/asdf.sh
+(type mise &>/dev/null 2>&1) && eval "$(mise activate zsh)"
 (type sheldon &>/dev/null 2>&1) && eval "$(sheldon source)"
 (type direnv &>/dev/null 2>&1) && eval "$(direnv hook zsh)"
 

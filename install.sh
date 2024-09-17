@@ -27,7 +27,7 @@ ln -snfv "$DOTFILES_DIR"/.gitignore_global ~/.gitignore_global
 mkdir -p ~/.config/sheldon
 ln -snfv "$DOTFILES_DIR"/plugins.toml ~/.config/sheldon/plugins.toml
 ln -snfv "$DOTFILES_DIR"/.tmux.conf ~/.tmux.conf
-ln -snfv "$DOTFILES_DIR"/.tool-versions ~/.tool-versions
+ln -snfv "$DOTFILES_DIR"/.mise.toml ~/.mise.toml
 ln -snfv "$DOTFILES_DIR"/.vimrc ~/.vimrc
 ln -snfv "$DOTFILES_DIR"/.zprofile ~/.zprofile
 ln -snfv "$DOTFILES_DIR"/.zshrc ~/.zshrc
