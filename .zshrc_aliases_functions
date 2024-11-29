@@ -17,3 +17,12 @@ alias tree='tree -I "node_modules" -Ca'
 alias gibo="docker run --rm simonwhitaker/gibo"
 alias act='act --container-architecture linux/amd64'
 alias -g CD='; cd $_'
+q() {
+  context="$(kubectl config current-context)"
+  namespace="${VSCODE_OPEN_K8S_NAMESPACE:-$(kubectl config view --minify --output 'jsonpath={..namespace}')}"
+  app_name="$(kubectl get pod -n "$namespace" -o jsonpath='{range .items[*]}{@.metadata.labels.app}{"\n"}' | sort | uniq | grep -v '^$' | fzf)"
+  if [ -z "$app_name" ]; then return 0; fi
+  pod_name="$(kubectl get pod -n "$namespace" -l app="$app_name" -o jsonpath='{.items[0].metadata.name}')"
+  working_dir="$(kubectl get pod -n "$namespace" -l app="$app_name" -o jsonpath='{.items[0].spec.containers[0].workingDir}')"
+  code --folder-uri "vscode-remote://k8s-container+context=$context+namespace=$namespace+podname=$pod_name+name=$app_name$working_dir"
+}
