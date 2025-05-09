@@ -25,5 +25,5 @@ q() {
   if [ -z "$app_name" ]; then return 0; fi
   pod_name="$(kubectl get pod -n "$namespace" -l app="$app_name" -o jsonpath='{.items[0].metadata.name}')"
   working_dir="$(kubectl get pod -n "$namespace" -l app="$app_name" -o jsonpath='{.items[0].spec.containers[0].workingDir}')"
-  code --folder-uri "vscode-remote://k8s-container+context=$context+namespace=$namespace+podname=$pod_name+name=$app_name$working_dir"
+  cursor --folder-uri "vscode-remote://k8s-container+context=$context+namespace=$namespace+podname=$pod_name+name=$app_name$working_dir"
 }
