@@ -6,7 +6,7 @@ case $(uname) in
   "Linux" )
     ! grep -qE '^ID=(debian|ubuntu)' /etc/os-release && exit 1
 
-    sudo apt update && sudo apt -y install curl git less vim zsh
+    sudo apt update && sudo apt -y install curl git less vim zsh git-delta
     (! type sheldon &>/dev/null 2>&1) &&
       curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh \
         | sudo bash -s -- --repo rossmacarthur/sheldon --to /usr/local/bin

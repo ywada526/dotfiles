@@ -5,7 +5,7 @@ github = "dracula/zsh"
 use = ["dracula.zsh-theme"]
 
 [plugins.dracula-zsh-post]
-inline='''
+inline = '''
   ZSH_THEME_GIT_PROMPT_PREFIX="%F{default}("
   PROMPT='%(1V:%F{yellow}:%(?:%F{green}:%F{red}))%B%# %F{default}%c $DRACULA_GIT_STATUS'
 '''
@@ -21,10 +21,7 @@ github = "b4b4r07/enhancd"
 
 [plugins.fzf]
 github = "junegunn/fzf"
-use = [
-  "completion.zsh",
-  "key-bindings.zsh",
-]
+use = ["completion.zsh", "key-bindings.zsh"]
 
 [plugins.fzf-post]
 inline = """
@@ -49,10 +46,10 @@ inline = """
 github = "ohmyzsh/ohmyzsh"
 use = [
   "plugins/common-aliases/common-aliases.plugin.zsh", # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/common-aliases
-  "plugins/git/git.plugin.zsh", # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git
-  "plugins/docker/docker.plugin.zsh", # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker
+  "plugins/git/git.plugin.zsh",                       # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git
+  "plugins/docker/docker.plugin.zsh",                 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker
   "plugins/docker-compose/docker-compose.plugin.zsh", # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker-compose
-  "plugins/kubectl/kubectl.plugin.zsh", # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/kubectl
+  "plugins/kubectl/kubectl.plugin.zsh",               # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/kubectl
 ]
 
 [plugins.zsh-autosuggestions]

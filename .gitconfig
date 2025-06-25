@@ -25,12 +25,25 @@
 [mergetool "vscode"]
 	cmd = code --wait $MERGED
 	prompt = false
+[pager]
+	diff = delta
+	log = delta
+	reflog = delta
+	show = delta
 [rerere]
 	enabled = true
 [init]
 	defaultBranch = main
 [credential]
-	helper = 
 	helper = /usr/local/share/gcm-core/git-credential-manager
 [credential "https://dev.azure.com"]
 	useHttpPath = true
+[delta]
+	plus-style = "syntax #012800"
+	minus-style = "syntax #340001"
+	syntax-theme = Monokai Extended
+	navigate = true
+	line-numbers = true
+	side-by-side = true
+[interactive]
+	diffFilter = delta --color-only
