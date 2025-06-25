@@ -18,29 +18,29 @@ brew install ghq; brew install --cask 1password alfred docker dropbox google-chr
 ### Symbolic Link
 
 ```sh
-ln -snfv ~/Dropbox/settings/macnative/LocalDictionary ~/Library/Spelling/LocalDictionary
-ln -snfv ~/Dropbox/settings/macnative/LocalDictionary ~/Library/Application\ Support/obsidian/Custom\ Dictionary.txt
-ln -snfv ~/Dropbox/settings/zsh/.zsh_history ~/.zsh_history
-ln -snfv ~/Dropbox/settings/homebrew/.Brewfile ~/.Brewfile
-ln -snfv ~/Dropbox/settings/homebrew/.Brewfile.lock.json ~/.Brewfile.lock.json
+ln -snfv ~/Library/CloudStorage/Dropbox/settings/macnative/LocalDictionary ~/Library/Spelling/LocalDictionary
+ln -snfv ~/Library/CloudStorage/Dropbox/settings/macnative/LocalDictionary ~/Library/Application\ Support/obsidian/Custom\ Dictionary.txt
+ln -snfv ~/Library/CloudStorage/Dropbox/settings/zsh/.zsh_history ~/.zsh_history
+ln -snfv ~/Library/CloudStorage/Dropbox/settings/homebrew/.Brewfile ~/.Brewfile
+ln -snfv ~/Library/CloudStorage/Dropbox/settings/homebrew/.Brewfile.lock.json ~/.Brewfile.lock.json
 mkdir -p ~/.config
-ln -snfv ~/Dropbox/settings/karabiner ~/.config/karabiner
+ln -snfv ~/Library/CloudStorage/Dropbox/settings/karabiner ~/.config/karabiner
 ```
 
 ### Raycast
 
 Script Commands > Add Directories
-`~/Dropbox/settings/raycast/script-commands`
+`~/Library/CloudStorage/Dropbox/settings/raycast/script-commands`
 
 ### Alfred
 
 Preferences > Advanced > Set preferences folder...
-`~/Dropbox/settings/alfred`
+`~/Library/CloudStorage/Dropbox/settings/alfred`
 
 ### iTerm
 
 General > Settings
-`~/Dropbox/settings/iterm`
+`~/Library/CloudStorage/Dropbox/settings/iterm`
 Save changes Automatically
 
 ## Homebrew bundle
