@@ -16,6 +16,46 @@ pri() {
   pr="$(gh pr list | fzf)"
   gh pr view -w "${pr%%	*}"
 }
+gwa() {
+  # Git Worktree Add helper
+  # Usage: gwa <branch-name>
+  if [ -z "$1" ]; then
+    echo "Usage: gwa <branch-name>" >&2
+    return 1
+  fi
+
+  local branch="$1"
+
+  # Ensure we are inside a git repository
+  if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    echo "Error: not inside a Git repository" >&2
+    return 1
+  fi
+
+  # Fetch latest refs from origin
+  git fetch || return $?
+
+  # Determine the default branch on origin (e.g. origin/main)
+  local default_branch
+  default_branch="$(git symbolic-ref refs/remotes/origin/HEAD --short)" || {
+    echo "Error: could not determine default branch" >&2
+    return 1
+  }
+
+  # Compute destination directory: parentDir/<repoName>-<branch>
+  local repo_root parent_dir repo_name dest_dir safe_branch
+  repo_root="$(git rev-parse --show-toplevel)" || return 1
+  parent_dir="$(dirname "$repo_root")"
+  repo_name="$(basename "$repo_root")"
+  safe_branch="${branch//\//-}"
+  dest_dir="${parent_dir}/${repo_name}-${safe_branch}"
+
+  # Run git worktree add with new branch based on the default branch
+  git worktree add -b "$branch" "$dest_dir" "$default_branch"
+}
+gwc() {
+  cd "$(_fzf_git_worktrees --no-multi)" || exit
+}
 alias tree='tree -I "node_modules" -Ca'
 alias gibo="docker run --rm simonwhitaker/gibo"
 alias act='act --container-architecture linux/amd64'

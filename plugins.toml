@@ -21,15 +21,16 @@ github = "b4b4r07/enhancd"
 
 [plugins.fzf]
 github = "junegunn/fzf"
-use = ["completion.zsh", "key-bindings.zsh"]
+# tag = "v0.63.0"
 
 [plugins.fzf-post]
 inline = """
-  if (! type fzf &>/dev/null 2>&1); then
-    ~/.local/share/sheldon/repos/github.com/junegunn/fzf/install --bin
-    sudo cp ~/.local/share/sheldon/repos/github.com/junegunn/fzf/bin/fzf /usr/local/bin
-  fi
+  ~/.local/share/sheldon/repos/github.com/junegunn/fzf/install --bin
+  cp ~/.local/share/sheldon/repos/github.com/junegunn/fzf/bin/fzf ~/.local/bin
 """
+
+[plugins.fzf-git]
+github = "junegunn/fzf-git.sh"
 
 [plugins.ohmyzsh-aliases-pre]
 inline = """

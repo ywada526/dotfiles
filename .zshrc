@@ -20,6 +20,7 @@ autoload -Uz compinit && compinit
 (type mise &>/dev/null 2>&1) && eval "$(mise activate zsh)"
 (type sheldon &>/dev/null 2>&1) && eval "$(sheldon source)"
 (type direnv &>/dev/null 2>&1) && eval "$(direnv hook zsh)"
+(type fzf &>/dev/null 2>&1) && source <(fzf --zsh)
 
 . ~/.zshrc_aliases_functions
 [ -f ~/.zshrc_private ] && . ~/.zshrc_private || true
