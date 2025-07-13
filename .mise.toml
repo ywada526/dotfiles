@@ -7,7 +7,9 @@ go = "latest"
 ruby = "latest"
 python = "latest"
 dotnet = "latest"
+"npm:@antfu/ni" = "latest"
+"npm:@anthropic-ai/claude-code" = "latest"
+"npm:@google/gemini-cli" = "latest"
 
 [settings]
-global_config_file = "~/.mise.toml"
 idiomatic_version_file_enable_tools = ["node", "ruby"]
