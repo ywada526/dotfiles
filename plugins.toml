@@ -20,14 +20,12 @@ inline = """
 github = "b4b4r07/enhancd"
 
 [plugins.fzf]
-github = "junegunn/fzf"
-# tag = "v0.63.0"
+github = 'junegunn/fzf'
+apply = ['fzf-install', 'fzf-source']
 
-[plugins.fzf-post]
-inline = """
-  ~/.local/share/sheldon/repos/github.com/junegunn/fzf/install --bin
-  cp ~/.local/share/sheldon/repos/github.com/junegunn/fzf/bin/fzf ~/.local/bin
-"""
+[templates]
+fzf-install = "{{ dir }}/install --bin > /dev/null \n path=($path {{ dir }}/bin(N-/))\n"
+fzf-source = "source <(fzf --zsh)"
 
 [plugins.fzf-git]
 github = "junegunn/fzf-git.sh"
