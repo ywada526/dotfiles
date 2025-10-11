@@ -20,7 +20,21 @@ autoload -Uz compinit && compinit
 (type mise &>/dev/null 2>&1) && eval "$(mise activate zsh)"
 (type sheldon &>/dev/null 2>&1) && eval "$(sheldon source)"
 (type direnv &>/dev/null 2>&1) && eval "$(direnv hook zsh)"
-(type fzf &>/dev/null 2>&1) && source <(fzf --zsh)
+# fzf integration - using safer method
+if type fzf &>/dev/null 2>&1; then
+  # Set up fzf key bindings and fuzzy completion
+  export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+  
+  # Key bindings
+  if [[ -f ~/.local/share/sheldon/repos/github.com/junegunn/fzf/shell/key-bindings.zsh ]]; then
+    source ~/.local/share/sheldon/repos/github.com/junegunn/fzf/shell/key-bindings.zsh
+  fi
+  
+  # Fuzzy completion
+  if [[ -f ~/.local/share/sheldon/repos/github.com/junegunn/fzf/shell/completion.zsh ]]; then
+    source ~/.local/share/sheldon/repos/github.com/junegunn/fzf/shell/completion.zsh
+  fi
+fi
 
 . ~/.zshrc_aliases_functions
 [ -f ~/.zshrc_private ] && . ~/.zshrc_private || true
