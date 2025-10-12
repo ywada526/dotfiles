@@ -44,6 +44,7 @@ inline = """
 [plugins.ohmyzsh-aliases]
 github = "ohmyzsh/ohmyzsh"
 use = [
+  "lib/git.zsh",                                      # https://github.com/ohmyzsh/ohmyzsh/tree/master/lib
   "plugins/common-aliases/common-aliases.plugin.zsh", # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/common-aliases
   "plugins/git/git.plugin.zsh",                       # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git
   "plugins/docker/docker.plugin.zsh",                 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker
