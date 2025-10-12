@@ -10,6 +10,8 @@ dotnet = "latest"
 "npm:@antfu/ni" = "latest"
 "npm:@anthropic-ai/claude-code" = "latest"
 "npm:@google/gemini-cli" = "latest"
+"npm:@openai/codex" = "latest"
+"npm:vibe-kanban" = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node", "ruby"]
