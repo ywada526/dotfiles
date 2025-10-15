@@ -19,7 +19,6 @@ brew install ghq; brew install --cask 1password alfred docker dropbox google-chr
 
 ```sh
 ln -snfv ~/Library/CloudStorage/Dropbox/settings/macnative/LocalDictionary ~/Library/Spelling/LocalDictionary
-ln -snfv ~/Library/CloudStorage/Dropbox/settings/macnative/LocalDictionary ~/Library/Application\ Support/obsidian/Custom\ Dictionary.txt
 ln -snfv ~/Library/CloudStorage/Dropbox/settings/zsh/.zsh_history ~/.zsh_history
 ln -snfv ~/Library/CloudStorage/Dropbox/settings/homebrew/.Brewfile ~/.Brewfile
 ln -snfv ~/Library/CloudStorage/Dropbox/settings/homebrew/.Brewfile.lock.json ~/.Brewfile.lock.json
