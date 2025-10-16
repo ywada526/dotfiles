@@ -4,6 +4,8 @@
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore_global
+	untrackedcache = true
+	fsmonitor = true
 [color]
 	ui = auto
 [fetch]
