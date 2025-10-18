@@ -52,3 +52,4 @@
 [alias]
 	tidy = !git fetch --prune && BRANCH=$(git branch --show-current) && git switch $(git symbolic-ref --short refs/remotes/origin/HEAD | sed \"s|^origin/||\") && git branch -D \"$BRANCH\" && git pull
 	cleanup = !git branch --merged | sed \"s/^\\* //\" | grep -Ev \"^($(git symbolic-ref --short refs/remotes/origin/HEAD | sed \"s|^origin/||\"))$\" | xargs git branch -D
+	cleanupwt = !git_cleanup_worktrees

@@ -56,6 +56,19 @@ gwa() {
 gwc() {
   cd "$(_fzf_git_worktrees --no-multi)" || exit
 }
+git_cleanup_worktrees() {
+  echo "Removing all Git worktrees in $(pwd)..."
+  for d in $(git worktree list --porcelain | awk '/worktree / {print $2}'); do
+    if [ "$d" = "$(git rev-parse --show-toplevel)" ]; then
+      continue
+    fi
+    echo "Removing worktree: $d"
+    git -C "$d" fsmonitor--daemon stop 2>/dev/null || true
+    git worktree remove --force "$d" 2>/dev/null || rm -rf "$d"
+  done
+  git worktree prune --expire=now -v
+  echo "Done"
+}
 alias tree='tree -I "node_modules" -Ca'
 alias gibo="docker run --rm simonwhitaker/gibo"
 alias act='act --container-architecture linux/amd64'
