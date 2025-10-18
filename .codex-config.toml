@@ -1,0 +1,16 @@
+model_reasoning_effort = "high"
+sandbox_mode = "workspace-write"
+network_access = true
+
+notify = [
+  "bash",
+  "-c",
+  'LAST_MESSAGE=$(echo "$1" | jq -r ".\"last-assistant-message\" // \"Codex task completed\""); osascript -e "display notification \"$LAST_MESSAGE\" with title \"Codex\""',
+]
+
+[tools]
+web_search = true
+
+[mcp_servers.context7]
+command = "npx"
+args = ["-y", "@upstash/context7-mcp"]

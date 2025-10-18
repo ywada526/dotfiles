@@ -35,5 +35,6 @@ ln -snfv "$DOTFILES_DIR"/.zshrc_aliases_functions ~/.zshrc_aliases_functions
 ln -snfv "$DOTFILES_DIR"/.npmrc ~/.npmrc
 ln -snfv "$DOTFILES_DIR"/.bunfig.toml ~/.bunfig.toml
 ln -snfv "$DOTFILES_DIR"/.default-npm-packages ~/.default-npm-packages
+ln -snfv "$DOTFILES_DIR"/.codex-config.toml ~/.codex/config.toml
 
 [ -z "${REMOTE_CONTAINERS:-}" ] && (! echo "$SHELL" | grep -q zsh) && chsh -s "$(which zsh)"
