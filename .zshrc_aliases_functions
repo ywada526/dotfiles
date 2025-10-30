@@ -69,5 +69,5 @@ git_cleanup_worktrees() {
     git worktree remove --force "$d" 2>/dev/null || rm -rf "$d"
   done
   git worktree prune --expire=now -v
-  echo "Done"
+  git cleanup
 }
