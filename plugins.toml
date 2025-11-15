@@ -59,6 +59,3 @@ use = ["zsh-autosuggestions.zsh"]
 [plugins.zsh-syntax-highlighting]
 github = "zsh-users/zsh-syntax-highlighting"
 use = ["zsh-syntax-highlighting.zsh"]
-
-[plugins.zsh-vi-mode]
-github = "jeffreytse/zsh-vi-mode"
