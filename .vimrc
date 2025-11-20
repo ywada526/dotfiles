@@ -1,6 +1,8 @@
 syntax on
 filetype plugin indent on
 
+set langmenu=C
+language messages C
 set autoindent
 set expandtab
 set tabstop=2
