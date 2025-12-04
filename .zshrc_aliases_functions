@@ -8,7 +8,7 @@ alias ggf="ggfl" # https://github.com/ohmyzsh/ohmyzsh/blob/97134d1eed19b72a9c4bf
 alias tree='tree -I "node_modules" -Ca'
 alias gibo="docker run --rm simonwhitaker/gibo"
 alias act='act --container-architecture linux/amd64'
-alias repos="ghq list --full-path | c"
+alias r="ghq list --full-path | c"
 pr() {
   if [ -n "$1" ]; then gh pr view -w "$1"
   else gh pr view -w "$(git symbolic-ref --short HEAD)"
