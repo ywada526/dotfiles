@@ -21,6 +21,9 @@ aerospace move right --window-id "$right_window_id"
 aerospace move left --window-id "$left_window_id"
 aerospace resize smart +500
 
+# Enable borders
+borders active_color=0xcc66cc66 inactive_color=0x00494d64 width=7
+
 # Containerize each column
 aerospace split --window-id "$right_window_id" vertical
 aerospace layout --window-id "$right_window_id" accordion

@@ -18,6 +18,9 @@ left_window_id="$(jq -r '([.[] | select(.["app-bundle-id"] == "com.openai.chat")
 # Create 2-column structure
 aerospace move left --window-id "$left_window_id"
 
+# Enable borders
+borders active_color=0xcc66cc66 inactive_color=0x00494d64 width=7
+
 # Containerize each column
 aerospace split --window-id "$left_window_id" vertical
 aerospace layout --window-id "$left_window_id" accordion
