@@ -7,7 +7,7 @@ after-startup-command = [
 
 start-at-login = true
 
-automatically-unhide-macos-hidden-apps = true
+automatically-unhide-macos-hidden-apps = false
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = false
@@ -89,6 +89,3 @@ persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
     alt-tab = 'workspace-back-and-forth'
     alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
-
-    cmd-h = [] # Disable "hide application"
-    cmd-alt-h = [] # Disable "hide others"
