@@ -22,7 +22,7 @@ ln -snfv ~/Library/CloudStorage/Dropbox/settings/macnative/LocalDictionary ~/Lib
 ln -snfv ~/Library/CloudStorage/Dropbox/settings/zsh/.zsh_history ~/.zsh_history
 ln -snfv ~/Library/CloudStorage/Dropbox/settings/homebrew/.Brewfile ~/.Brewfile
 ln -snfv ~/Library/CloudStorage/Dropbox/settings/homebrew/.Brewfile.lock.json ~/.Brewfile.lock.json
-mkdir -p ~/.config
+mkdir -p ~/.config/karabiner/assets
 /bin/cp -f "$HOME/.config/karabiner/karabiner.json" "$HOME/Library/CloudStorage/Dropbox/settings/karabiner/karabiner.json"
 rsync -a --delete "$HOME/Library/CloudStorage/Dropbox/settings/karabiner/assets/" "$HOME/.config/karabiner/assets/"
 
