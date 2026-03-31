@@ -25,7 +25,7 @@ ln -snfv "$DROPBOX_DIR/settings/zsh/.zsh_history" ~/.zsh_history
 ln -snfv "$DROPBOX_DIR/settings/homebrew/.Brewfile" ~/.Brewfile
 ln -snfv "$DROPBOX_DIR/settings/homebrew/.Brewfile.lock.json" ~/.Brewfile.lock.json
 mkdir -p ~/.config/karabiner/assets
-/bin/cp -f "$HOME/.config/karabiner/karabiner.json" "$DROPBOX_DIR/settings/karabiner/karabiner.json"
+/bin/cp -f "$DROPBOX_DIR/settings/karabiner/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
 rsync -a --delete "$DROPBOX_DIR/settings/karabiner/assets/" "$HOME/.config/karabiner/assets/"
 
 ```
