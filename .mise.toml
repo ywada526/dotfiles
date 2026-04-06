@@ -1,5 +1,6 @@
 [tools]
 node = "latest"
+pnpm = "latest"
 bun = "latest"
 deno = "latest"
 rust = "latest"
@@ -11,7 +12,7 @@ dotnet = "latest"
 "npm:@anthropic-ai/claude-code" = "latest"
 "npm:@google/gemini-cli" = "latest"
 "npm:@openai/codex" = "latest"
-"npm:vibe-kanban" = "latest"
+"npm:@biomejs/biome" = "2.4.8"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node", "ruby"]
