@@ -2,8 +2,8 @@
 set -euo pipefail
 export PATH="/opt/homebrew/bin:$PATH"
 
-# List all windows
-windows="$(aerospace list-windows --workspace focused --json --format '%{app-bundle-id} %{window-id}')"
+# List all tiling (non-floating) windows
+windows="$(aerospace list-windows --workspace focused --json --format '%{app-bundle-id} %{window-id} %{window-layout}' | jq '[.[] | select(.["window-layout"] != "floating")]')"
 
 # Need at least 1 window
 (( $(jq 'length' <<< "$windows") < 1 )) && exit 0
