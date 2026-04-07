@@ -2,8 +2,8 @@
 set -euo pipefail
 export PATH="/opt/homebrew/bin:$PATH"
 
-# List all tiling (non-floating) windows
-windows="$(aerospace list-windows --workspace focused --json --format '%{app-bundle-id} %{window-id} %{window-layout}' | jq '[.[] | select(.["window-layout"] != "floating")]')"
+# List only tiling windows (exclude floating, hidden, minimized, fullscreen, etc.)
+windows="$(aerospace list-windows --workspace focused --json --format '%{app-bundle-id} %{window-id} %{window-layout}' | jq '[.[] | select(.["window-layout"] | test("^(h_|v_)?(tiles|accordion)$"))]')"
 
 # Need at least 1 window
 (( $(jq 'length' <<< "$windows") < 1 )) && exit 0
