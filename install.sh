@@ -38,6 +38,8 @@ ln -snfv "$DOTFILES_DIR"/.bunfig.toml ~/.bunfig.toml
 ln -snfv "$DOTFILES_DIR"/.default-npm-packages ~/.default-npm-packages
 mkdir -p ~/.codex
 ln -snfv "$DOTFILES_DIR"/.codex-config.toml ~/.codex/config.toml
+mkdir -p ~/.claude
+ln -snfv "$DOTFILES_DIR"/claude/CLAUDE.md ~/.claude/CLAUDE.md
 mkdir -p ~/.config
 ln -snfv "$DOTFILES_DIR"/aerospace ~/.config/aerospace
 
