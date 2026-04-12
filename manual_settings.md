@@ -19,31 +19,36 @@ brew install ghq; brew install --cask 1password alfred docker dropbox google-chr
 
 ```sh
 DROPBOX_DIR="$(plutil -extract personal.path raw -expect string "$HOME/.dropbox/info.json")"
-
-ln -snfv "$DROPBOX_DIR/settings/macnative/LocalDictionary" ~/Library/Spelling/LocalDictionary
-ln -snfv "$DROPBOX_DIR/settings/zsh/.zsh_history" ~/.zsh_history
-ln -snfv "$DROPBOX_DIR/settings/homebrew/.Brewfile" ~/.Brewfile
-ln -snfv "$DROPBOX_DIR/settings/homebrew/.Brewfile.lock.json" ~/.Brewfile.lock.json
-mkdir -p ~/.config/karabiner/assets
-/bin/cp -f "$DROPBOX_DIR/settings/karabiner/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
-rsync -a --delete "$DROPBOX_DIR/settings/karabiner/assets/" "$HOME/.config/karabiner/assets/"
+EXPECTED_DROPBOX_DIR="$HOME/Library/CloudStorage/Dropbox"
+if [ "${DROPBOX_DIR%/}" != "${EXPECTED_DROPBOX_DIR%/}" ]; then
+  printf '%s\n' 'Dropbox File Provider is disabled. Enable Dropbox on File Provider. See https://help.dropbox.com/installs/dropbox-for-macos-support' >&2
+  false
+else
+  ln -snfv "$HOME/Library/CloudStorage/Dropbox/settings/macnative/LocalDictionary" ~/Library/Spelling/LocalDictionary
+  ln -snfv "$HOME/Library/CloudStorage/Dropbox/settings/zsh/.zsh_history" ~/.zsh_history
+  ln -snfv "$HOME/Library/CloudStorage/Dropbox/settings/homebrew/.Brewfile" ~/.Brewfile
+  ln -snfv "$HOME/Library/CloudStorage/Dropbox/settings/homebrew/.Brewfile.lock.json" ~/.Brewfile.lock.json
+  mkdir -p ~/.config/karabiner/assets
+  /bin/cp -f "$HOME/Library/CloudStorage/Dropbox/settings/karabiner/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
+  rsync -a --delete "$HOME/Library/CloudStorage/Dropbox/settings/karabiner/assets/" "$HOME/.config/karabiner/assets/"
+fi
 
 ```
 
 ### Raycast
 
 Script Commands > Add Directories
-`$DROPBOX_DIR/settings/raycast/script-commands`
+`~/Library/CloudStorage/Dropbox/settings/raycast/script-commands`
 
 ### Alfred
 
 Preferences > Advanced > Set preferences folder...
-`$DROPBOX_DIR/settings/alfred`
+`~/Library/CloudStorage/Dropbox/settings/alfred`
 
 ### iTerm
 
 General > Settings
-`$DROPBOX_DIR/settings/iterm`
+`~/Library/CloudStorage/Dropbox/settings/iterm`
 Save changes Automatically
 
 ## Homebrew bundle
