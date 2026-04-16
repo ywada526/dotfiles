@@ -10,14 +10,9 @@ inline = '''
   PROMPT='%(1V:%F{yellow}:%(?:%F{green}:%F{red}))%B%# %F{default}%c $DRACULA_GIT_STATUS'
 '''
 
-[plugins.enhancd-pre]
-inline = """
-  export ENHANCD_COMMAND=c;
-  export ENHANCD_FILTER="fzf --height 25% --reverse";
-"""
-
-[plugins.enhancd]
-github = "b4b4r07/enhancd"
+[plugins.zoxide]
+github = 'ajeetdsouza/zoxide'
+apply = ['zoxide-install', 'zoxide-init']
 
 [plugins.fzf]
 github = 'junegunn/fzf'
@@ -26,6 +21,8 @@ apply = ['fzf-install', 'fzf-source']
 [templates]
 fzf-install = "{{ dir }}/install --bin > /dev/null \n path=($path {{ dir }}/bin(N-/))\n"
 fzf-source = "source <(fzf --zsh)"
+zoxide-install = "{{ dir }}/install.sh > /dev/null 2>&1\n path=($path ~/.local/bin(N-/))\n"
+zoxide-init = "eval \"$(zoxide init zsh)\"\n c() { if [ $# -eq 0 ]; then zi; else z \"$@\"; fi }\n"
 
 [plugins.fzf-git]
 github = "junegunn/fzf-git.sh"
