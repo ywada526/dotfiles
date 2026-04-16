@@ -53,3 +53,9 @@
 	tidy = !git fetch --prune && BRANCH=$(git branch --show-current) && git switch $(git symbolic-ref --short refs/remotes/origin/HEAD | sed \"s|^origin/||\") && git branch -D \"$BRANCH\" && git pull
 	cleanup = !git branch --merged | sed \"s/^\\* //\" | grep -Ev \"^($(git symbolic-ref --short refs/remotes/origin/HEAD | sed \"s|^origin/||\"))$\" | xargs git branch -D
 	cleanupwt = !zsh -c 'source /Users/ywada526/dotfiles/.zshrc_aliases_functions && git_cleanup_worktrees'
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
