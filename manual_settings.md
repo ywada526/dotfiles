@@ -15,6 +15,8 @@ brew install ghq; brew install --cask 1password alfred docker dropbox google-chr
 
 ## Link to Dropbox Settings
 
+Make the `settings/` folder available offline in Dropbox before running the script below. Otherwise `rsync` will hang waiting for File Provider to download on-demand files.
+
 ### Symbolic Link
 
 ```sh
@@ -28,11 +30,9 @@ else
   ln -snfv "$HOME/Library/CloudStorage/Dropbox/settings/zsh/.zsh_history" ~/.zsh_history
   ln -snfv "$HOME/Library/CloudStorage/Dropbox/settings/homebrew/.Brewfile" ~/.Brewfile
   ln -snfv "$HOME/Library/CloudStorage/Dropbox/settings/homebrew/.Brewfile.lock.json" ~/.Brewfile.lock.json
-  mkdir -p ~/.config/karabiner/assets
-  /bin/cp -f "$HOME/Library/CloudStorage/Dropbox/settings/karabiner/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
-  rsync -a --delete "$HOME/Library/CloudStorage/Dropbox/settings/karabiner/assets/" "$HOME/.config/karabiner/assets/"
+  mkdir -p ~/.config
+  rsync -a --delete "$HOME/Library/CloudStorage/Dropbox/settings/karabiner/" "$HOME/.config/karabiner/"
 fi
-
 ```
 
 ### Raycast
