@@ -40,6 +40,9 @@ mkdir -p ~/.codex
 ln -snfv "$DOTFILES_DIR"/.codex-config.toml ~/.codex/config.toml
 mkdir -p ~/.claude
 ln -snfv "$DOTFILES_DIR"/claude/CLAUDE.md ~/.claude/CLAUDE.md
+
+# Install Claude Code natively (auto-updates)
+curl -fsSL https://claude.ai/install.sh | bash
 mkdir -p ~/.config
 ln -snfv "$DOTFILES_DIR"/aerospace ~/.config/aerospace
 
