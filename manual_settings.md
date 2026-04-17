@@ -51,6 +51,15 @@ General > Settings
 `~/Library/CloudStorage/Dropbox/settings/iterm`
 Save changes Automatically
 
+## Default App: VS Code for Text Files
+
+```sh
+brew install duti
+for ext in .md .txt .json .jsonc .yaml .yml .toml .ts .tsx .js .jsx .mjs .cjs .css .scss .xml .csv .log .sh .zsh .bash .py .rb .go .rs .conf .ini .env; do
+  duti -s com.microsoft.VSCode "$ext" all
+done
+```
+
 ## Homebrew bundle
 
 ```sh
