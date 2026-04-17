@@ -23,4 +23,4 @@ autoload -Uz compinit && compinit
 
 
 . ~/.zshrc_aliases_functions
-[ -f ~/.zshrc_private ] && . ~/.zshrc_private || true
+[ -f ~/.zshrc.local ] && . ~/.zshrc.local || true

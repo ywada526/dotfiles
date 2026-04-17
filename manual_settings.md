@@ -65,4 +65,4 @@ brew bundle --global
 
 ## Private Settings
 
-https://github.com/ywada526/dotfiles-private
+https://github.com/ywada526/dotfiles.local
