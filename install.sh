@@ -44,6 +44,9 @@ case $(uname) in
     # Keyboard: disable press-and-hold accent popup (prefer key repeat)
     defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
+    # Keyboard: enable full keyboard navigation (Tab to move focus between all controls)
+    defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
     # Finder: default to list view (Nlsv = list, icnv = icon, clmv = column, Flwv = gallery)
     defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
