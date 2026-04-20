@@ -24,3 +24,7 @@ autoload -Uz compinit && compinit
 
 . ~/.zshrc_aliases_functions
 [ -f ~/.zshrc.local ] && . ~/.zshrc.local || true
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/yuta.wada/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
