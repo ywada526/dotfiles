@@ -9,7 +9,7 @@ defaults write com.apple.Terminal "Startup Window Settings" -string "MyProfile"
 ## Install Priority Apps
 
 ```sh
-brew install ghq; brew install --cask 1password alfred docker dropbox google-chrome \
+brew install ghq; brew install --cask 1password docker dropbox google-chrome \
   iterm2 karabiner-elements raycast slack visual-studio-code
 ```
 
@@ -39,11 +39,6 @@ fi
 
 Script Commands > Add Directories
 `~/Library/CloudStorage/Dropbox/settings/raycast/script-commands`
-
-### Alfred
-
-Preferences > Advanced > Set preferences folder...
-`~/Library/CloudStorage/Dropbox/settings/alfred`
 
 ### iTerm
 
