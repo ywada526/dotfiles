@@ -5,3 +5,4 @@
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/share/mise/shims:$PATH"
