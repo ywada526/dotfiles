@@ -93,6 +93,12 @@ ln -snfv "$DOTFILES_DIR"/aerospace ~/.config/aerospace
 (! type claude &>/dev/null 2>&1) &&
   curl -fsSL https://claude.ai/install.sh | bash
 
+# Local / private overrides (optional)
+DOTFILES_LOCAL_DIR="${DOTFILES_LOCAL_DIR:-$HOME/ghq/github.com/ywada526/dotfiles.local}"
+if [ -x "$DOTFILES_LOCAL_DIR/install.sh" ]; then
+  "$DOTFILES_LOCAL_DIR/install.sh"
+fi
+
 if [ -z "${REMOTE_CONTAINERS:-}" ] && ! echo "$SHELL" | grep -q zsh; then
   chsh -s "$(which zsh)"
 fi
