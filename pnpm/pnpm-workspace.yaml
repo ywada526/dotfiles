@@ -1,0 +1,26 @@
+# Security defaults for new projects.
+# Auto-copied into projects by the `enter` hook in ~/dotfiles/.mise.toml
+# when a project's mise.toml declares pnpm.
+
+# Hard-fail install if a dep needs an unapproved build script.
+# pnpm 10 silently skips by default — this surfaces misses in CI.
+strictDepBuilds: true
+
+# Allowlist for build scripts (postinstall etc). Add per project as needed.
+onlyBuiltDependencies: []
+  # - esbuild
+  # - sharp
+  # - fsevents
+
+# Skip versions younger than 7 days (value is in minutes).
+# Buys time for the community to catch malicious publishes.
+minimumReleaseAge: 10080
+minimumReleaseAgeExclude: []
+
+# Reject installing a version with weaker provenance/signing than
+# a previously seen version of the same package.
+trustPolicy: no-downgrade
+trustPolicyExclude: []
+
+# Equivalent to save-exact=true: drop ^/~ when adding deps.
+savePrefix: ""

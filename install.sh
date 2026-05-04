@@ -79,9 +79,8 @@ ln -snfv "$DOTFILES_DIR"/.vimrc ~/.vimrc
 ln -snfv "$DOTFILES_DIR"/.zprofile ~/.zprofile
 ln -snfv "$DOTFILES_DIR"/.zshrc ~/.zshrc
 ln -snfv "$DOTFILES_DIR"/.zshrc_aliases_functions ~/.zshrc_aliases_functions
-ln -snfv "$DOTFILES_DIR"/.npmrc ~/.npmrc
+ln -snfv "$DOTFILES_DIR"/pnpm/.npmrc ~/.npmrc
 ln -snfv "$DOTFILES_DIR"/.bunfig.toml ~/.bunfig.toml
-ln -snfv "$DOTFILES_DIR"/.default-npm-packages ~/.default-npm-packages
 mkdir -p ~/.codex
 ln -snfv "$DOTFILES_DIR"/.codex-config.toml ~/.codex/config.toml
 mkdir -p ~/.claude
