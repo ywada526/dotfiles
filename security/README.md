@@ -22,6 +22,45 @@ Runs `gitleaks protect --staged` before every commit to block secret leakage
 pre-commit framework) take precedence. The global hook will not run there —
 add gitleaks to those repos' hook config separately.
 
+## envchain (secrets management)
+
+Installed via `brew install envchain` from `install.sh`. Stores secrets in
+the macOS Keychain and injects them into a child process's environment for
+the duration of one command.
+
+### Usage pattern
+
+```bash
+# One-time: store secrets for a project namespace
+envchain --set myproject DB_PASSWORD API_KEY
+
+# Run a command with those secrets in env
+envchain myproject pnpm dev
+```
+
+### Why envchain over plain .env or shell-export
+
+- Secrets at-rest live in Keychain (encrypted), not in plaintext files
+- Keychain ACLs prompt on third-party reads (`security find-generic-password`
+  from random processes triggers a macOS dialog)
+- Injection is **per-command scope**: env vars only exist while the wrapped
+  command runs, not in the parent shell. Postinstall malware running in an
+  unrelated `pnpm install` can't see them.
+
+### Per-project transparent wrapping (pattern, not yet automated)
+
+To make `pnpm dev` transparently use envchain inside a project:
+
+1. Add `bin.local/` to `.gitignore` (per-user, not committed)
+2. Symlink wrapper scripts in `bin.local/` for each command (`pnpm`, `task`, etc.)
+3. Add `mise.local.toml` (also gitignored) with `[env] _.path = ["./bin.local"]`
+
+This gets `pnpm dev` invoked as `envchain <ns> pnpm dev` automatically inside
+the project. AGENTS.md / CLAUDE.md stay clean (canonical commands).
+
+A generic dispatcher script for this is intentionally **not** in dotfiles
+yet — pending decision on whether to standardize the pattern.
+
 ## Out of scope
 
 Periodic / forensic scanning (trufflehog, OSV-scanner, Trivy filesystem

@@ -17,6 +17,8 @@ case $(uname) in
       eval "$(/opt/homebrew/bin/brew shellenv)"
     (! type sheldon &>/dev/null 2>&1) &&
       brew install sheldon
+    (! type envchain &>/dev/null 2>&1) &&
+      brew install envchain
 
     # Trackpad: tap to click
     defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
