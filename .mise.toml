@@ -16,7 +16,7 @@ uv = "0.11.7"
 [settings]
 experimental = true
 idiomatic_version_file_enable_tools = ["node", "ruby"]
-minimum_release_age = "7d"
+minimum_release_age = "14d"
 # npm/npx are blocked by ~/dotfiles/pnpm/bin stubs — route mise's npm:
 # backend through pnpm so installs still work.
 npm.package_manager = "pnpm"

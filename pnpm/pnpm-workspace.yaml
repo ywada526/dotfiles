@@ -12,9 +12,9 @@ onlyBuiltDependencies: []
   # - sharp
   # - fsevents
 
-# Skip versions younger than 7 days (value is in minutes).
+# Skip versions younger than 14 days (value is in minutes).
 # Buys time for the community to catch malicious publishes.
-minimumReleaseAge: 10080
+minimumReleaseAge: 20160
 minimumReleaseAgeExclude: []
 
 # Reject installing a version with weaker provenance/signing than
