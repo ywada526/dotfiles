@@ -9,6 +9,12 @@ alias tree='tree -I "node_modules" -Ca'
 alias gibo="docker run --rm simonwhitaker/gibo"
 alias act='act --container-architecture linux/amd64'
 alias r="ghq list --full-path | c"
+# Route package manager invocations through Socket Firewall (sfw-free) for
+# pre-install threat intel + malicious package blocking.
+alias pnpm="sfw-free pnpm"
+alias pip="sfw-free pip"
+alias uv="sfw-free uv"
+alias cargo="sfw-free cargo"
 pr() {
   if [ -n "$1" ]; then gh pr view -w "$1"
   else gh pr view -w "$(git symbolic-ref --short HEAD)"
