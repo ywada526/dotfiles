@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Global pre-commit hook (wired via core.hooksPath in install.sh).
+# Scans staged changes for committed secrets via gitleaks.
+#
+# Bypass for the rare false positive: git commit --no-verify
+# Allowlist persistently: add a [[rules.allowlists]] entry to .gitleaks.toml
+# in the repo root.
+#
+# Note: repos that override core.hooksPath locally (husky, lefthook) will
+# bypass this hook. Add gitleaks to those repos' own hook config.
+
+set -euo pipefail
+
+if ! command -v gitleaks >/dev/null 2>&1; then
+  echo "[pre-commit] gitleaks not on PATH; skipping secret scan" >&2
+  exit 0
+fi
+
+exec gitleaks protect --staged --redact

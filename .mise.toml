@@ -12,6 +12,7 @@ uv = "0.11.7"
 "npm:@antfu/ni" = "30.0.0"
 "aqua:openai/codex" = "0.128.0"
 "aqua:biomejs/biome" = "2.4.8"
+"aqua:gitleaks/gitleaks" = "8.30.1"
 "ubi:SocketDev/sfw-free" = "1.8.0"
 
 [settings]
