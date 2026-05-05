@@ -12,5 +12,7 @@ notify = [
 web_search = true
 
 [mcp_servers.context7]
-command = "npx"
-args = ["-y", "@upstash/context7-mcp"]
+# `npx` is blocked by ~/dotfiles/pnpm/bin stub. Route via pnpm so the
+# install respects pnpm's min-release-age cooldown too.
+command = "pnpm"
+args = ["dlx", "@upstash/context7-mcp"]

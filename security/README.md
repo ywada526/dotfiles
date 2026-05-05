@@ -61,6 +61,24 @@ the project. AGENTS.md / CLAUDE.md stay clean (canonical commands).
 A generic dispatcher script for this is intentionally **not** in dotfiles
 yet — pending decision on whether to standardize the pattern.
 
+## AI agent / MCP server hygiene
+
+Operational notes (no automated dotfiles enforcement, just reminders).
+
+### MCP server adoption checklist
+
+Before adding an MCP server (Claude Code plugin, Codex `mcp_servers.*`,
+Cursor / Cline, etc.):
+
+- Is the server published by an official source (Anthropic, the SaaS owner,
+  a reputable individual)? Random repos warrant extra scrutiny.
+- What credentials does it consume? Use scoped / short-lived tokens
+  (e.g. fine-grained GitHub PATs, read-only Slack tokens).
+- How is it installed? `npx -y` is blocked here by design — prefer `pnpm
+  dlx` (which inherits cooldown) or pin the package via `npm:` in
+  `.mise.toml` for a fully version-controlled binary.
+- Codex example: see `.codex-config.toml` for the `pnpm dlx` pattern.
+
 ## Out of scope
 
 Periodic / forensic scanning (trufflehog, OSV-scanner, Trivy filesystem
