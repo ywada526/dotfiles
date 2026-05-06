@@ -1,14 +1,5 @@
 # shellcheck disable=SC2148
 
-alias d="docker"
-alias dc="docker compose"
-alias kk="k9s"
-alias gho="gh repo view -w"
-alias ggf="ggfl" # https://github.com/ohmyzsh/ohmyzsh/blob/97134d1eed19b72a9c4bf90a2effa847221608bf/plugins/git/git.plugin.zsh#L150-L158
-alias tree='tree -I "node_modules" -Ca'
-alias gibo="docker run --rm simonwhitaker/gibo"
-alias act='act --container-architecture linux/amd64'
-alias r="ghq list --full-path | c"
 # Route package manager invocations through Socket Firewall (sfw-free) for
 # pre-install threat intel + malicious package blocking.
 # uvx is a separate binary (uv tool run shorthand) so it needs its own alias.
@@ -19,12 +10,3 @@ alias pip="sfw-free pip"
 alias uv="sfw-free uv"
 alias uvx="sfw-free uvx"
 alias cargo="sfw-free cargo"
-pr() {
-  if [ -n "$1" ]; then gh pr view -w "$1"
-  else gh pr view -w "$(git symbolic-ref --short HEAD)"
-  fi
-}
-pri() {
-  pr="$(gh pr list | fzf)"
-  gh pr view -w "${pr%%	*}"
-}
