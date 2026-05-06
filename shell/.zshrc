@@ -19,11 +19,5 @@ autoload -Uz compinit && compinit
 
 (type mise &>/dev/null 2>&1) && eval "$(mise activate zsh)"
 (type sheldon &>/dev/null 2>&1) && eval "$(sheldon source)"
-(type direnv &>/dev/null 2>&1) && eval "$(direnv hook zsh)"
-
 
 [ -f ~/.zshrc.local ] && . ~/.zshrc.local || true
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-# export PATH="/Users/yuta.wada/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
