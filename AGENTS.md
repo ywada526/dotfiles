@@ -26,7 +26,7 @@ Keep comments short and operational. Favor descriptive lowercase filenames. When
 ## Testing Guidelines
 There is no automated test suite, so validate changes with focused checks tied to the edited files.
 
-- Shell scripts: run `bash -n` and, if behavior changed, execute the narrowest safe command path.
+- Shell scripts: run `bash -n` and `shellcheck`, and if behavior changed, execute the narrowest safe command path. shellcheck targets bash/sh only — zsh files (`.zshrc`, `.zshenv`) are not analyzed. Prefer `# shellcheck source=/dev/null` to opt out of following sourced files rather than enabling `external-sources` globally.
 - Zsh config: run `source ~/.zshrc` and verify startup in a fresh shell.
 - Installer changes: test `./install.sh` only in a disposable environment, container, or otherwise reversible setup.
 - Manual setup docs: confirm paths, commands, and filenames against the current repository layout.
