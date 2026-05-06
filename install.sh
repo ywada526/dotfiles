@@ -31,6 +31,7 @@ mkdir -p ~/.config/mise
 ln -snfv "$DOTFILES_DIR"/mise/.mise.toml ~/.config/mise/config.toml
 ln -snfv "$DOTFILES_DIR"/vim/.vimrc ~/.vimrc
 ln -snfv "$DOTFILES_DIR"/shell/.zshenv ~/.zshenv
+ln -snfv "$DOTFILES_DIR"/shell/.zprofile ~/.zprofile
 ln -snfv "$DOTFILES_DIR"/shell/.zshrc ~/.zshrc
 ln -snfv "$DOTFILES_DIR"/shell/.bashrc ~/.bashrc
 ln -snfv "$DOTFILES_DIR"/shell/.bash_profile ~/.bash_profile
