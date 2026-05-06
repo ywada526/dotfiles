@@ -1,12 +1,12 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-This repository manages personal dotfiles and local tool configuration, not an application codebase. Configs are grouped by tool into per-tool subdirectories (`zsh/`, `git/`, `tmux/`, `vim/`, `mise/`, `codex/`, `bun/`, `pnpm/`, `claude/`, `security/`); files inside keep their dot-prefixed destination names (e.g. `zsh/.zshrc`, `git/.gitconfig`). [`install.sh`](/Users/ywada526/dotfiles/install.sh) symlinks each into `$HOME` or `~/.config`. [`zsh/plugins.toml`](/Users/ywada526/dotfiles/zsh/plugins.toml) defines Sheldon-managed Zsh plugins. [`manual_settings.md`](/Users/ywada526/dotfiles/manual_settings.md) documents post-install macOS setup and links into Dropbox-managed settings. [`README.md`](/Users/ywada526/dotfiles/README.md) stays intentionally minimal and only covers bootstrap installation.
+This repository manages personal dotfiles and local tool configuration, not an application codebase. Configs are grouped by tool into per-tool subdirectories (`zsh/`, `git/`, `tmux/`, `vim/`, `mise/`, `codex/`, `bun/`, `pnpm/`, `claude/`, `security/`); files inside keep their dot-prefixed destination names (e.g. `zsh/.zshrc`, `git/.gitconfig`). [`install.sh`](/Users/ywada526/dotfiles/install.sh) symlinks each into `$HOME` or `~/.config`. [`zsh/plugins.toml`](/Users/ywada526/dotfiles/zsh/plugins.toml) defines Sheldon-managed Zsh plugins. [`setup.md`](/Users/ywada526/dotfiles/setup.md) documents post-install macOS setup and links into Dropbox-managed settings. [`README.md`](/Users/ywada526/dotfiles/README.md) stays intentionally minimal and only covers bootstrap installation.
 
 ## Working Principles
 Prefer small, tool-focused edits. Keep existing file layout and naming intact unless there is a clear maintenance benefit to changing them. This repo contains machine setup entrypoints, so avoid broad refactors that make local recovery harder. When updating shell or TOML config, preserve the surrounding style instead of normalizing unrelated sections.
 
-Do not commit secrets, local tokens, or values copied from the private companion repository referenced in [`manual_settings.md`](/Users/ywada526/dotfiles/manual_settings.md). Treat Dropbox-backed files such as `~/Library/CloudStorage/Dropbox/settings/...` as external state: document required manual steps, but do not silently vendor their contents into this repository.
+Do not commit secrets, local tokens, or values copied from the private companion repository referenced in [`setup.md`](/Users/ywada526/dotfiles/setup.md). Treat Dropbox-backed files such as `~/Library/CloudStorage/Dropbox/settings/...` as external state: document required manual steps, but do not silently vendor their contents into this repository.
 
 ## Build, Test, and Development Commands
 Run commands from the repository root unless a file explicitly requires otherwise.
