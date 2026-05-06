@@ -13,39 +13,6 @@ inline = '''
   PROMPT='%(1V:%F{yellow}:%(?:%F{green}:%F{red}))%B%# %F{default}%c $DRACULA_GIT_STATUS'
 '''
 
-[plugins.zoxide]
-github = 'ajeetdsouza/zoxide'
-apply = ['zoxide-install', 'zoxide-init']
-
-[plugins.fzf]
-github = 'junegunn/fzf'
-apply = ['fzf-install', 'fzf-source']
-
-[templates]
-# Only run install scripts on first launch; otherwise they cost 500ms+ per
-# shell start. Skip when the binary is already in PATH or in the plugin dir.
-fzf-install = "[[ -x {{ dir }}/bin/fzf ]] || {{ dir }}/install --bin > /dev/null\n path=($path {{ dir }}/bin(N-/))\n"
-fzf-source = "source <(fzf --zsh)"
-zoxide-install = "command -v zoxide >/dev/null 2>&1 || {{ dir }}/install.sh > /dev/null 2>&1\n path=($path ~/.local/bin(N-/))\n"
-zoxide-init = "eval \"$(zoxide init zsh)\"\n c() { if [ $# -eq 0 ]; then zi; else z \"$@\"; fi }\n"
-
-[plugins.fzf-git]
-github = "junegunn/fzf-git.sh"
-
-[plugins.ohmyzsh-aliases-pre]
-inline = """
-  # ref: https://github.com/ohmyzsh/ohmyzsh/blob/fcd7da3aec8315178991aa25d57dacfc6c331ac6/plugins/common-aliases/common-aliases.plugin.zsh#L5
-  alias ls='ls --color'
-"""
-
-[plugins.ohmyzsh-aliases]
-github = "ohmyzsh/ohmyzsh"
-use = [
-  "lib/git.zsh",                                      # https://github.com/ohmyzsh/ohmyzsh/tree/master/lib
-  "plugins/common-aliases/common-aliases.plugin.zsh", # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/common-aliases
-  "plugins/git/git.plugin.zsh",                       # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git
-]
-
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
 use = ["zsh-autosuggestions.zsh"]
