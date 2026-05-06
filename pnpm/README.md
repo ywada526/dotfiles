@@ -1,7 +1,10 @@
 # pnpm setup
 
-pnpm is the only Node.js package manager allowed on this machine. npm and npx
-are stubbed in `bin/` and intercepted via `~/.zprofile` PATH order.
+pnpm is the only Node.js package manager allowed on this machine.
+npm / npx / corepack are blocked by shell functions defined in
+[`../security/blockers.sh`](../security/blockers.sh) (sourced from
+both .zshenv and .bashrc/.bash_profile, plus BASH_ENV for non-interactive
+bash subshells).
 
 ## Files
 
@@ -9,7 +12,6 @@ are stubbed in `bin/` and intercepted via `~/.zprofile` PATH order.
 |---|---|---|
 | `.npmrc` | `~/.npmrc` | npm-format config (registry, save-exact, security flags) |
 | `pnpm-workspace.yaml` | (none — copied per project) | Template injected by mise enter hook into projects with `package.json` |
-| `bin/{npm,npx,corepack}` | (PATH overlay) | Stubs that exit 1 with a "use pnpm" message |
 
 ## Backend choice for `npm:` migration
 

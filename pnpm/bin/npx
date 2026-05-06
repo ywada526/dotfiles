@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-# Disabled by dotfiles. PATH overlay points here via ~/.zprofile to force pnpm.
-# Emergency bypass: PATH="$HOME/.local/share/mise/shims:$PATH" npx <args>
-echo "npx is disabled — use 'pnpm dlx' (or 'pnpm exec') instead." >&2
-exit 1

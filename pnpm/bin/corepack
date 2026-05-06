@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-# Disabled by dotfiles. corepack would otherwise be a backdoor for yarn etc.
-# pnpm is installed via mise directly, no corepack needed.
-echo "corepack is disabled — pnpm is installed via mise." >&2
-exit 1

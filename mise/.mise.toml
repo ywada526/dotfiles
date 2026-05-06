@@ -19,17 +19,9 @@ uv = "0.11.7"
 experimental = true
 idiomatic_version_file_enable_tools = ["node", "ruby"]
 minimum_release_age = "14d"
-# npm/npx are blocked by ~/dotfiles/pnpm/bin stubs — route mise's npm:
-# backend through pnpm so installs still work.
+# npm/npx are blocked by shell function blockers (security/blockers.sh) —
+# route mise's npm: backend through pnpm so installs still work.
 npm.package_manager = "pnpm"
-
-[env]
-# Have mise prepend the stub dir (npm/npx/corepack blockers) ahead of its own
-# per-tool install paths during activation. Without this, `mise activate`
-# would push real /Users/.../mise/installs/node/.../npm in front of the stub
-# and the block would silently lose. .zshenv has the same prepend as a
-# fallback for non-mise contexts (scripts, bash).
-_.path = ["~/dotfiles/pnpm/bin"]
 
 [hooks]
 enter = '''

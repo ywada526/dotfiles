@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-# Disabled by dotfiles. PATH overlay points here via ~/.zprofile to force pnpm.
-# Emergency bypass: PATH="$HOME/.local/share/mise/shims:$PATH" npm <args>
-echo "npm is disabled — use pnpm instead." >&2
-exit 1
