@@ -1,7 +1,5 @@
 [[ -f /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# Pin pnpm (and other XDG-aware tools) to ~/.config instead of macOS-native
-# ~/Library/Preferences. Most other tools (mise, gh, git) already write here.
 export XDG_CONFIG_HOME="$HOME/.config"
 
 export PATH="$HOME/.local/bin:$PATH"

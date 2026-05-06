@@ -1,2 +1,13 @@
 [install]
+# Save dependencies with exact version (no ^/~ prefix).
 exact = true
+
+# Cooldown — skip versions younger than 14 days (bun expects seconds).
+# Buys time for the community to catch malicious publishes.
+minimumReleaseAge = 1209600
+
+# Block lifecycle scripts (preinstall / install / postinstall / prepare)
+# globally. To allow specific packages, list them in package.json's
+# `trustedDependencies` (per-project allowlist; bun's equivalent of
+# pnpm's onlyBuiltDependencies).
+ignoreScripts = true

@@ -33,11 +33,12 @@ mkdir -p ~/.config/mise
 ln -snfv "$DOTFILES_DIR"/mise/.mise.toml ~/.config/mise/config.toml
 ln -snfv "$DOTFILES_DIR"/vim/.vimrc ~/.vimrc
 ln -snfv "$DOTFILES_DIR"/shell/.zshenv ~/.zshenv
-ln -snfv "$DOTFILES_DIR"/shell/.zprofile ~/.zprofile
 ln -snfv "$DOTFILES_DIR"/shell/.zshrc ~/.zshrc
 ln -snfv "$DOTFILES_DIR"/shell/.bashrc ~/.bashrc
 ln -snfv "$DOTFILES_DIR"/shell/.bash_profile ~/.bash_profile
-ln -snfv "$DOTFILES_DIR"/pnpm/.npmrc ~/.npmrc
+ln -snfv "$DOTFILES_DIR"/npm/.npmrc ~/.npmrc
+mkdir -p ~/.config/pnpm
+ln -snfv "$DOTFILES_DIR"/pnpm/.npmrc ~/.config/pnpm/rc
 ln -snfv "$DOTFILES_DIR"/bun/.bunfig.toml ~/.bunfig.toml
 mkdir -p ~/.codex
 ln -snfv "$DOTFILES_DIR"/codex/.codex-config.toml ~/.codex/config.toml
