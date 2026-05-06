@@ -24,16 +24,7 @@ corepack() { printf 'corepack is disabled — pnpm is installed via mise.\n' >&2
 # --- Wrap (route package manager invocations through Socket Firewall) ---
 # sfw-free Free tier covers npm/pnpm/yarn/pip/uv/cargo. Bun isn't on the
 # explicit list but is HTTP-proxy intercepted just fine in practice.
-#
-# npm() also injects npm-only env vars so npm gets cooldown + script-block
-# + fund-suppression without polluting pnpm/bun (pnpm reads ~/.npmrc
-# globally, so setting these there would break pnpm's allowlist model).
-npm() {
-  NPM_CONFIG_MIN_RELEASE_AGE=14d \
-  NPM_CONFIG_IGNORE_SCRIPTS=true \
-  NPM_CONFIG_FUND=false \
-  sfw-free npm "$@"
-}
+npm()   { sfw-free npm   "$@"; }
 pnpm()  { sfw-free pnpm  "$@"; }
 bun()   { sfw-free bun   "$@"; }
 pip()   { sfw-free pip   "$@"; }
