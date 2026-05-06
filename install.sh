@@ -70,21 +70,21 @@ case $(uname) in
 esac
 
 DOTFILES_DIR=$(cd "$(dirname "$0")" && pwd)
-ln -snfv "$DOTFILES_DIR"/.gitconfig ~/.gitconfig
-ln -snfv "$DOTFILES_DIR"/.gitignore_global ~/.gitignore_global
+ln -snfv "$DOTFILES_DIR"/git/.gitconfig ~/.gitconfig
+ln -snfv "$DOTFILES_DIR"/git/.gitignore_global ~/.gitignore_global
 mkdir -p ~/.config/sheldon
-ln -snfv "$DOTFILES_DIR"/plugins.toml ~/.config/sheldon/plugins.toml
-ln -snfv "$DOTFILES_DIR"/.tmux.conf ~/.tmux.conf
+ln -snfv "$DOTFILES_DIR"/zsh/plugins.toml ~/.config/sheldon/plugins.toml
+ln -snfv "$DOTFILES_DIR"/tmux/.tmux.conf ~/.tmux.conf
 mkdir -p ~/.config/mise
-ln -snfv "$DOTFILES_DIR"/.mise.toml ~/.config/mise/config.toml
-ln -snfv "$DOTFILES_DIR"/.vimrc ~/.vimrc
-ln -snfv "$DOTFILES_DIR"/.zprofile ~/.zprofile
-ln -snfv "$DOTFILES_DIR"/.zshrc ~/.zshrc
-ln -snfv "$DOTFILES_DIR"/.zshrc_aliases_functions ~/.zshrc_aliases_functions
+ln -snfv "$DOTFILES_DIR"/mise/.mise.toml ~/.config/mise/config.toml
+ln -snfv "$DOTFILES_DIR"/vim/.vimrc ~/.vimrc
+ln -snfv "$DOTFILES_DIR"/zsh/.zprofile ~/.zprofile
+ln -snfv "$DOTFILES_DIR"/zsh/.zshrc ~/.zshrc
+ln -snfv "$DOTFILES_DIR"/zsh/.zshrc_aliases_functions ~/.zshrc_aliases_functions
 ln -snfv "$DOTFILES_DIR"/pnpm/.npmrc ~/.npmrc
-ln -snfv "$DOTFILES_DIR"/.bunfig.toml ~/.bunfig.toml
+ln -snfv "$DOTFILES_DIR"/bun/.bunfig.toml ~/.bunfig.toml
 mkdir -p ~/.codex
-ln -snfv "$DOTFILES_DIR"/.codex-config.toml ~/.codex/config.toml
+ln -snfv "$DOTFILES_DIR"/codex/.codex-config.toml ~/.codex/config.toml
 mkdir -p ~/.claude
 ln -snfv "$DOTFILES_DIR"/claude/CLAUDE.md ~/.claude/CLAUDE.md
 

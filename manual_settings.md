@@ -1,11 +1,3 @@
-## Terminal Theme
-
-```sh
-open ~/dotfiles/MyProfile.terminal
-defaults write com.apple.terminal "Default Window Settings" -string "MyProfile"
-defaults write com.apple.Terminal "Startup Window Settings" -string "MyProfile"
-```
-
 ## Install Priority Apps
 
 ```sh
