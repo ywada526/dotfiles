@@ -39,6 +39,10 @@ defaults write com.apple.finder AppleShowAllFiles -bool true
 # Finder: show path bar (breadcrumbs) at the bottom
 defaults write com.apple.finder ShowPathbar -bool true
 
+# Flush cfprefsd cache so it doesn't write stale plist values back over the
+# changes above on shutdown / next login. Then restart Finder so it picks
+# up the new defaults.
+killall cfprefsd >/dev/null 2>&1 || true
 killall Finder >/dev/null 2>&1 || true
 
 # Dock: auto-hide, and effectively disable re-appearing on hover
