@@ -15,7 +15,6 @@ zstyle ':completion:*' completer _expand _complete _approximate
 zstyle ':completion:*' format '%F{blue}%BCompleting %d%b%f'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-(type brew &>/dev/null 2>&1) && FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 
 # Run full compinit (with $fpath security audit) at most once a day;
 # otherwise reuse the cached dump. The audit costs ~200ms; -C skips it.
@@ -27,12 +26,17 @@ else
 fi
 
 (( $+commands[sheldon] )) && eval "$(sheldon source)"
-(( $+commands[fzf] )) && source <(fzf --zsh)
-(( $+commands[carapace] )) && source <(carapace _carapace zsh)
-(( $+commands[mise] && $+functions[zsh-defer] )) && zsh-defer eval '$(mise activate zsh)'
-if (( $+commands[zoxide] )); then
-  eval "$(zoxide init zsh)"
-  c() { if [ $# -eq 0 ]; then zi; else z "$@"; fi }
+
+# zsh-defer is provided by sheldon; defer non-prompt-critical inits so the
+# first prompt appears immediately and these load shortly after.
+if (( $+functions[zsh-defer] )); then
+  (( $+commands[fzf] ))      && zsh-defer eval 'source <(fzf --zsh)'
+  (( $+commands[carapace] )) && zsh-defer eval 'source <(carapace _carapace zsh)'
+  (( $+commands[mise] ))     && zsh-defer eval '$(mise activate zsh)'
+  if (( $+commands[zoxide] )); then
+    zsh-defer eval '$(zoxide init zsh)'
+    c() { if [ $# -eq 0 ]; then zi; else z "$@"; fi }
+  fi
 fi
 
 [ -f ~/.zshrc.local ] && . ~/.zshrc.local || true
