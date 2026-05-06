@@ -19,6 +19,8 @@ case $(uname) in
       brew install sheldon
     (! type envchain &>/dev/null 2>&1) &&
       brew install envchain
+    (! type carapace &>/dev/null 2>&1) &&
+      brew install carapace
     ;;
   *) exit 1;;
 esac
