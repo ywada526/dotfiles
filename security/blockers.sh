@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # Block / wrap package manager invocations across zsh and bash.
 #
 # Sourced from shell/.zshenv and shell/.bashrc / shell/.bash_profile,
@@ -12,19 +13,16 @@
 #   command npm ...           — one-shot bypass (skips function lookup)
 #   /opt/homebrew/bin/npm ... — explicit absolute path also bypasses
 
-# --- Block ---
-# npx is blocked because pnpm dlx covers the same use case with cooldown
-# and registry policy; npm itself is wrapped (below) to keep `npm install`
-# usable through Socket Firewall.
+# --- Block: force pnpm ---
+npm()      { printf 'npm is disabled — use pnpm instead.\n' >&2; return 1; }
 npx()      { printf 'npx is disabled — use "pnpm dlx" (or "pnpm exec") instead.\n' >&2; return 1; }
-# corepack is blocked because it can re-enable yarn outside of mise's
-# trust path, opening a back door around the rest of the controls here.
+# corepack can re-enable yarn outside of mise's trust path, opening a
+# back door around the rest of the controls here.
 corepack() { printf 'corepack is disabled — pnpm is installed via mise.\n' >&2; return 1; }
 
 # --- Wrap (route package manager invocations through Socket Firewall) ---
 # sfw-free Free tier covers npm/pnpm/yarn/pip/uv/cargo. Bun isn't on the
 # explicit list but is HTTP-proxy intercepted just fine in practice.
-npm()   { sfw-free npm   "$@"; }
 pnpm()  { sfw-free pnpm  "$@"; }
 bun()   { sfw-free bun   "$@"; }
 pip()   { sfw-free pip   "$@"; }
