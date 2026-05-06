@@ -1,34 +1,22 @@
 #!/usr/bin/env bash
 
-set -eux
+set -euo pipefail
 
 case $(uname) in
   "Linux" )
     ! grep -qE '^ID=(debian|ubuntu)' /etc/os-release && exit 1
 
-    sudo apt update && sudo apt -y install curl fzf git less vim zoxide zsh git-delta
+    sudo apt update && sudo apt -y install curl git less vim zsh
     (! type sheldon &>/dev/null 2>&1) &&
       curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh \
         | sudo bash -s -- --repo rossmacarthur/sheldon --to /usr/local/bin
-    (! type mise &>/dev/null 2>&1) &&
-      curl https://mise.run | sh
     ;;
   "Darwin" )
-    (! type brew &>/dev/null 2>&1) &&
+    if ! type brew &>/dev/null 2>&1; then
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       eval "$(/opt/homebrew/bin/brew shellenv)"
-    (! type sheldon &>/dev/null 2>&1) &&
-      brew install sheldon
-    (! type envchain &>/dev/null 2>&1) &&
-      brew install envchain
-    (! type mise &>/dev/null 2>&1) &&
-      brew install mise
-    (! type fzf &>/dev/null 2>&1) &&
-      brew install fzf
-    (! type zoxide &>/dev/null 2>&1) &&
-      brew install zoxide
-    (! type carapace &>/dev/null 2>&1) &&
-      brew install carapace
+      brew install sheldon envchain mise fzf zoxide carapace
+    fi
     ;;
   *) exit 1;;
 esac
@@ -63,6 +51,6 @@ if [ -x "$DOTFILES_LOCAL_DIR/install.sh" ]; then
   "$DOTFILES_LOCAL_DIR/install.sh"
 fi
 
-if [ -z "${REMOTE_CONTAINERS:-}" ] && ! echo "$SHELL" | grep -q zsh; then
+if [ -z "${REMOTE_CONTAINERS:-}" ] && ! echo "${SHELL:-}" | grep -q zsh; then
   chsh -s "$(which zsh)"
 fi
