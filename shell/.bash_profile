@@ -1,5 +1,3 @@
-. "$HOME/dotfiles/security/blockers.sh"
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-# export PATH="/Users/yuta.wada/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+# Login shells: delegate to .bashrc so all bash entry points (login,
+# non-login, non-interactive via BASH_ENV) funnel through one file.
+[ -f ~/.bashrc ] && . ~/.bashrc
