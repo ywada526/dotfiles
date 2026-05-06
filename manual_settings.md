@@ -46,6 +46,10 @@ defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock autohide-delay -float 1000
 defaults write com.apple.dock autohide-time-modifier -float 0
 killall Dock >/dev/null 2>&1 || true
+
+# Animations: kill window open/close fade and shrink resize transition to instant
+defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 ```
 
 ## Install Priority Apps
