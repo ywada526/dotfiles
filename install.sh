@@ -32,6 +32,7 @@ ln -snfv "$DOTFILES_DIR"/tmux/.tmux.conf ~/.tmux.conf
 mkdir -p ~/.config/mise
 ln -snfv "$DOTFILES_DIR"/mise/.mise.toml ~/.config/mise/config.toml
 ln -snfv "$DOTFILES_DIR"/vim/.vimrc ~/.vimrc
+ln -snfv "$DOTFILES_DIR"/zsh/.zshenv ~/.zshenv
 ln -snfv "$DOTFILES_DIR"/zsh/.zprofile ~/.zprofile
 ln -snfv "$DOTFILES_DIR"/zsh/.zshrc ~/.zshrc
 ln -snfv "$DOTFILES_DIR"/zsh/.zshrc_aliases_functions ~/.zshrc_aliases_functions
