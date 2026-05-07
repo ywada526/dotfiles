@@ -31,16 +31,25 @@ yarn()     { printf 'yarn is disabled — use pnpm instead.\n' >&2; return 1; }
 corepack() { printf 'corepack is disabled — pnpm is installed via mise.\n' >&2; return 1; }
 
 # --- envchain helpers ---
-# Resolve a namespace from the current dir's git remote, walking up the
-# subpath toward owner/repo. Returns the most specific match found in
-# `envchain --list`; fails when none of the candidates are defined.
-_envchain_namespace() {
-  local remote_url repo_root subpath candidate_namespace registered_namespaces
+# Most specific namespace candidate for the current dir (no list check,
+# no walk-up). Returns owner/repo or owner/repo/subpath. Used by the
+# `envchain --set` wrapper for registration.
+_envchain_candidate_namespace() {
+  local remote_url repo_root subpath candidate_namespace
   remote_url=$(git config --get remote.origin.url 2>/dev/null) || return 1
   repo_root=$(git rev-parse --show-toplevel 2>/dev/null) || return 1
   subpath=${PWD#"$repo_root"}; subpath=${subpath#/}
   candidate_namespace=$(printf '%s' "$remote_url" | sed -E 's#(git@|https?://)[^:/]+[:/]##; s#\.git$##')
   [[ -n $subpath ]] && candidate_namespace="$candidate_namespace/$subpath"
+  printf '%s\n' "$candidate_namespace"
+}
+
+# Resolve a registered namespace from the current dir, walking up the
+# subpath toward owner/repo. Returns the most specific match found in
+# `envchain --list`; fails when none of the candidates are defined.
+_envchain_namespace() {
+  local candidate_namespace registered_namespaces
+  candidate_namespace=$(_envchain_candidate_namespace) || return 1
   registered_namespaces=$(envchain --list 2>/dev/null) || return 1
   while :; do
     if printf '%s\n' "$registered_namespaces" | grep -qFx "$candidate_namespace"; then
@@ -64,6 +73,30 @@ _envchain_run() {
     envchain "$namespace" "$@"
   else
     command "$@"
+  fi
+}
+
+# Wrap envchain itself to add `--set-here`: a register flag that infers
+# the namespace from the current dir's git remote (owner/repo[/subpath])
+# instead of taking it as a positional. Real envchain has no such flag,
+# so unknown forms fail loudly — there is no silent misinterpretation
+# when this wrapper isn't loaded.
+envchain() {
+  if [[ $1 == --set-here ]]; then
+    shift
+    if [[ $# -lt 1 ]]; then
+      printf 'envchain: --set-here requires at least one variable name\n' >&2
+      return 1
+    fi
+    local namespace
+    if ! namespace=$(_envchain_candidate_namespace); then
+      printf 'envchain: cannot infer namespace (not in a git repo with origin)\n' >&2
+      return 1
+    fi
+    printf 'envchain: using inferred namespace "%s"\n' "$namespace" >&2
+    command envchain --set "$namespace" "$@"
+  else
+    command envchain "$@"
   fi
 }
 
