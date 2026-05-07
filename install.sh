@@ -15,7 +15,7 @@ case $(uname) in
     if ! type brew &>/dev/null 2>&1; then
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       eval "$(/opt/homebrew/bin/brew shellenv)"
-      brew install sheldon envchain mise fzf zoxide carapace
+      brew install sheldon mise fzf zoxide carapace
     fi
     ;;
   *) exit 1;;
