@@ -19,7 +19,7 @@ uv = "0.11.7"
 experimental = true
 idiomatic_version_file_enable_tools = ["node", "ruby"]
 minimum_release_age = "14d"
-# npm/npx are blocked by shell function blockers (security/blockers.sh) —
+# npm/npx are blocked by shell function hooks (security/hooks.sh) —
 # route mise's npm: backend through pnpm so installs still work.
 npm.package_manager = "pnpm"
 
