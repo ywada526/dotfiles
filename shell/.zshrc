@@ -33,12 +33,10 @@ if (( $+functions[zsh-defer] )); then
   (( $+commands[fzf] ))      && zsh-defer eval 'source <(fzf --zsh)'
   (( $+commands[carapace] )) && zsh-defer eval 'source <(carapace _carapace zsh)'
   (( $+commands[mise] ))     && zsh-defer eval '$(mise activate zsh)'
-  if (( $+commands[zoxide] )); then
-    zsh-defer eval '$(zoxide init zsh)'
-    c() { if [ $# -eq 0 ]; then zi; else z "$@"; fi }
-  fi
+  (( $+commands[zoxide] )) && zsh-defer eval '$(zoxide init zsh)'
 fi
 
 . ~/dotfiles/shell/git_aliases.zsh
+. ~/dotfiles/shell/functions.zsh
 
 [ -f ~/.zshrc.local ] && . ~/.zshrc.local || true
