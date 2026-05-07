@@ -39,4 +39,6 @@ if (( $+functions[zsh-defer] )); then
   fi
 fi
 
+. ~/dotfiles/shell/git_aliases.zsh
+
 [ -f ~/.zshrc.local ] && . ~/.zshrc.local || true
