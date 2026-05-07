@@ -36,7 +36,7 @@ if (( $+functions[zsh-defer] )); then
   (( $+commands[zoxide] )) && zsh-defer eval '$(zoxide init zsh)'
 fi
 
-. ~/dotfiles/shell/git_aliases.zsh
+. ~/dotfiles/shell/aliases.zsh
 . ~/dotfiles/shell/functions.zsh
 
 [ -f ~/.zshrc.local ] && . ~/.zshrc.local || true

@@ -1,4 +1,6 @@
-# Subset of ohmyzsh's git plugin aliases we actually use.
+alias la='ls -lAFh'
+alias grep='grep --color'
+
 alias ga='git add'
 alias gaa='git add --all'
 alias gap='git apply'
