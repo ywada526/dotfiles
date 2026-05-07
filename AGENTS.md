@@ -21,7 +21,7 @@ Avoid running `./install.sh` on the host machine as a casual verification step u
 ## Coding Style & Naming Conventions
 Shell scripts should use `#!/usr/bin/env bash`. New or substantially edited shell scripts should prefer `set -euo pipefail`; existing files may use slightly different strict-mode flags, and those should only be normalized when the change is directly relevant. Match the current formatting style in each file: shell scripts generally use two-space indentation.
 
-Keep comments short and operational. Favor descriptive lowercase filenames. When adding config for a tool, place it next to the rest of that tool's files rather than introducing a new top-level location.
+Write comments in English, even when chatting with the user in Japanese. Keep them short and operational. Favor descriptive lowercase filenames. When adding config for a tool, place it next to the rest of that tool's files rather than introducing a new top-level location.
 
 ## Testing Guidelines
 There is no automated test suite, so validate changes with focused checks tied to the edited files.
