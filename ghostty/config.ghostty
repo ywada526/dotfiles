@@ -22,3 +22,14 @@ keybind = shift+enter=text:\x1b\r
 # (Karabiner remaps Cmd+Opt+H/L into these arrow combos)
 keybind = cmd+opt+arrow_left=previous_tab
 keybind = cmd+opt+arrow_right=next_tab
+
+# Meta+hjkl to move between split panes
+keybind = alt+h=goto_split:left
+keybind = alt+j=goto_split:bottom
+keybind = alt+k=goto_split:top
+keybind = alt+l=goto_split:right
+
+# Split pane visibility
+unfocused-split-fill = #000000
+unfocused-split-opacity = 0.4
+split-divider-color = #888888
