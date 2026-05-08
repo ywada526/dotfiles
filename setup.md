@@ -59,8 +59,16 @@ defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 ## Install Priority Apps
 
 ```sh
-brew install ghq; brew install --cask 1password docker dropbox google-chrome \
-  iterm2 karabiner-elements raycast slack visual-studio-code
+brew install ghq; brew install --cask 1password codex dropbox google-chrome \
+  karabiner-elements raycast slack visual-studio-code
+```
+
+## Claude Code
+
+Native installer (self-updating, kept outside Homebrew).
+
+```sh
+curl -fsSL https://claude.ai/install.sh | bash
 ```
 
 ## Link to Dropbox Settings
@@ -90,12 +98,6 @@ fi
 Script Commands > Add Directories
 `~/Library/CloudStorage/Dropbox/settings/raycast/script-commands`
 
-### iTerm
-
-General > Settings
-`~/Library/CloudStorage/Dropbox/settings/iterm`
-Save changes Automatically
-
 ## Default App: VS Code for Text Files
 
 ```sh
@@ -119,4 +121,6 @@ brew bundle --global
 
 ## Private Settings
 
-https://github.com/ywada526/dotfiles.local
+```sh
+ghq get ywada526/dotfiles.local
+```
