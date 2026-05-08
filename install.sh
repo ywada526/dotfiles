@@ -39,8 +39,9 @@ mkdir -p ~/.config/zsh
 ln -snfv "$DOTFILES_DIR"/shell/completions ~/.config/zsh/completions
 ln -snfv "$DOTFILES_DIR"/pnpm/.npmrc ~/.npmrc
 ln -snfv "$DOTFILES_DIR"/bun/.bunfig.toml ~/.bunfig.toml
-mkdir -p ~/.codex
-ln -snfv "$DOTFILES_DIR"/codex/.codex-config.toml ~/.codex/config.toml
+mkdir -p ~/.codex/rules
+ln -snfv "$DOTFILES_DIR"/codex/AGENTS.md ~/.codex/AGENTS.md
+ln -snfv "$DOTFILES_DIR"/codex/rules/default.rules ~/.codex/rules/default.rules
 mkdir -p ~/.claude
 ln -snfv "$DOTFILES_DIR"/claude/CLAUDE.md ~/.claude/CLAUDE.md
 ln -snfv "$DOTFILES_DIR"/claude/settings.json ~/.claude/settings.json

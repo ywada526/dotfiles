@@ -1,0 +1,21 @@
+# Prompt before commands that Claude is configured to ask about.
+prefix_rule(
+    pattern = ["sudo"],
+    decision = "prompt",
+    justification = "sudo can modify system state and should require explicit approval",
+    match = ["sudo ls"],
+)
+
+prefix_rule(
+    pattern = ["git", "push"],
+    decision = "prompt",
+    justification = "Pushing changes publishes local commits and should require explicit approval",
+    match = ["git push", "git push origin main"],
+)
+
+prefix_rule(
+    pattern = ["gh", "pr", "create"],
+    decision = "prompt",
+    justification = "Creating pull requests is an external publishing action and should require explicit approval",
+    match = ["gh pr create", "gh pr create --fill"],
+)
