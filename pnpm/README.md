@@ -1,7 +1,7 @@
 # pnpm setup
 
 pnpm is the only Node.js package manager allowed on this machine.
-npm / npx / corepack are blocked by shell functions defined in
+npm / npx / yarn / corepack are blocked by shell functions defined in
 [`../security/hooks.sh`](../security/hooks.sh) (sourced from
 both .zshenv and .bashrc/.bash_profile, plus BASH_ENV for non-interactive
 bash subshells).
