@@ -1,6 +1,12 @@
 #compdef envchain
+# shellcheck shell=bash disable=SC2034,SC2206,SC2296
 # Completion for envchain. Covers the `--set-here` flag added by our
 # wrapper in security/hooks.sh as well as the upstream interface.
+#
+# This file is zsh-only (uses `${(f)...}` flags and `_describe`'s
+# array-by-name semantics). The shellcheck shell=bash directive plus
+# the per-issue disables silence false positives that fire on
+# zsh-specific syntax — shellcheck doesn't have a `shell=zsh` mode.
 
 _envchain() {
   local -a namespaces flags
