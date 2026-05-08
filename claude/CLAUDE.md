@@ -1,2 +1,2 @@
-ユーザーへの返答は日本語で行う。
-conventional commits 形式を遵守する。
+Respond to the user in Japanese.
+Follow the Conventional Commits format.
