@@ -26,6 +26,7 @@ else
 fi
 
 (( $+commands[sheldon] )) && eval "$(sheldon source)"
+(( $+commands[zoxide] )) && eval "$(zoxide init zsh)"
 
 # zsh-defer is provided by sheldon; defer non-prompt-critical inits so the
 # first prompt appears immediately and these load shortly after.
@@ -33,7 +34,6 @@ if (( $+functions[zsh-defer] )); then
   (( $+commands[fzf] ))      && zsh-defer eval 'source <(fzf --zsh)'
   (( $+commands[carapace] )) && zsh-defer eval 'source <(carapace _carapace zsh)'
   (( $+commands[mise] ))     && zsh-defer eval '$(mise activate zsh)'
-  (( $+commands[zoxide] )) && zsh-defer eval '$(zoxide init zsh)'
 fi
 
 . ~/dotfiles/shell/aliases.zsh
