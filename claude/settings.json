@@ -1,35 +1,6 @@
 {
   "theme": "auto",
   "skipAutoPermissionPrompt": true,
-  "sandbox": {
-    "enabled": true,
-    "filesystem": {
-      "allowWrite": [
-        "~/.npm",
-        "~/.cache",
-        "~/Library/pnpm",
-        "~/Library/Caches",
-        "~/.bun",
-        "~/.cargo",
-        "~/.rustup",
-        "~/.local/share",
-        "~/go/pkg"
-      ]
-    },
-    "network": {
-      "allowedDomains": [
-        "github.com",
-        "api.github.com",
-        "*.githubusercontent.com",
-        "codeload.github.com",
-        "registry.npmjs.org",
-        "*.npmjs.org",
-        "formulae.brew.sh",
-        "ghcr.io",
-        "api.anthropic.com"
-      ]
-    }
-  },
   "permissions": {
     "defaultMode": "auto",
     "ask": [
