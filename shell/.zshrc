@@ -16,6 +16,11 @@ zstyle ':completion:*' format '%F{blue}%BCompleting %d%b%f'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
+# Custom completion functions live under shell/completions/ in this repo
+# (symlinked into ~/.config/zsh/completions by install.sh). Must come
+# before compinit so new functions are picked up.
+fpath=(~/.config/zsh/completions $fpath)
+
 # Run full compinit (with $fpath security audit) at most once a day;
 # otherwise reuse the cached dump. The audit costs ~200ms; -C skips it.
 autoload -Uz compinit

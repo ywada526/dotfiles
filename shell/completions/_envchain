@@ -1,0 +1,54 @@
+#compdef envchain
+# Completion for envchain. Covers the `--set-here` flag added by our
+# wrapper in security/hooks.sh as well as the upstream interface.
+
+_envchain() {
+  local -a namespaces flags
+  namespaces=(${(f)"$(command envchain --list 2>/dev/null)"})
+  flags=(
+    '--set:register variables in NAMESPACE'
+    '--set-here:register variables in cwd-inferred namespace'
+    '--list:list namespaces (or vars in NAMESPACE)'
+    '--noecho:do not echo input when reading values'
+    '--echo:echo input when reading values'
+    '--require-passphrase:require Keychain passphrase'
+    '--no-require-passphrase:do not require Keychain passphrase'
+  )
+
+  if (( CURRENT == 2 )); then
+    _describe -t flags 'flag' flags
+    _describe -t namespaces 'namespace' namespaces
+    return
+  fi
+
+  case ${words[2]} in
+    --set|--list)
+      if (( CURRENT == 3 )); then
+        _describe -t namespaces 'namespace' namespaces
+      else
+        _message 'variable name'
+      fi
+      ;;
+    --set-here)
+      _message 'variable name'
+      ;;
+    --*)
+      # Other flags can come before NAMESPACE; offer namespaces + flags again.
+      _describe -t flags 'flag' flags
+      _describe -t namespaces 'namespace' namespaces
+      ;;
+    *)
+      # words[2] was a namespace; complete the inner command.
+      if (( CURRENT == 3 )); then
+        _command_names -e
+      else
+        # Shift words so _normal sees the inner command line.
+        words=(${words[3,-1]})
+        (( CURRENT -= 2 ))
+        _normal
+      fi
+      ;;
+  esac
+}
+
+_envchain "$@"

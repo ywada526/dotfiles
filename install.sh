@@ -35,6 +35,8 @@ ln -snfv "$DOTFILES_DIR"/shell/.zprofile ~/.zprofile
 ln -snfv "$DOTFILES_DIR"/shell/.zshrc ~/.zshrc
 ln -snfv "$DOTFILES_DIR"/shell/.bashrc ~/.bashrc
 ln -snfv "$DOTFILES_DIR"/shell/.bash_profile ~/.bash_profile
+mkdir -p ~/.config/zsh
+ln -snfv "$DOTFILES_DIR"/shell/completions ~/.config/zsh/completions
 ln -snfv "$DOTFILES_DIR"/pnpm/.npmrc ~/.npmrc
 ln -snfv "$DOTFILES_DIR"/bun/.bunfig.toml ~/.bunfig.toml
 mkdir -p ~/.codex
