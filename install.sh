@@ -41,6 +41,8 @@ mkdir -p ~/.codex
 ln -snfv "$DOTFILES_DIR"/codex/.codex-config.toml ~/.codex/config.toml
 mkdir -p ~/.claude
 ln -snfv "$DOTFILES_DIR"/claude/CLAUDE.md ~/.claude/CLAUDE.md
+mkdir -p ~/.config/ghostty
+ln -snfv "$DOTFILES_DIR"/ghostty/config.ghostty ~/.config/ghostty/config.ghostty
 
 # Install Claude Code natively (auto-updates)
 (! type claude &>/dev/null 2>&1) &&

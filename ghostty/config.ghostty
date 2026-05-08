@@ -1,0 +1,24 @@
+# Ghostty configuration
+# Reference: https://ghostty.org/docs/config
+
+# Font
+font-family = SF Mono Square
+font-size = 16
+
+# Window padding
+window-padding-x = 10
+window-padding-y = 5
+
+# Send Esc+ for both left/right Option keys (Meta key behavior)
+macos-option-as-alt = true
+
+# Cmd+Z sends ^_ (0x1f) — undo for editors that bind it
+keybind = cmd+z=text:\x1f
+
+# Shift+Enter sends Meta+Enter (ESC+CR) — newline without submit in CLIs that support it
+keybind = shift+enter=text:\x1b\r
+
+# Cmd+Opt+Left/Right to move between tabs
+# (Karabiner remaps Cmd+Opt+H/L into these arrow combos)
+keybind = cmd+opt+arrow_left=previous_tab
+keybind = cmd+opt+arrow_right=next_tab
