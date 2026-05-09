@@ -10,7 +10,7 @@
 # of zsh and bash that sources this file.
 #
 # Two layers compose here:
-#   - sfw-free  routes package manager network calls through Socket
+#   - sfw  routes package manager network calls through Socket
 #               Firewall. Free tier covers npm/pnpm/yarn/pip/uv/cargo;
 #               bun is HTTP-proxy intercepted just fine in practice.
 #   - envchain  injects per-repo secrets from macOS Keychain. The
@@ -64,7 +64,7 @@ _envchain_namespace() {
 
 # Run "$@" with envchain prefix when a namespace matches the current
 # dir; otherwise run via `command` to skip our function. Works for both
-# "binary chain" cases (e.g. sfw-free pnpm ...) and direct binary cases
+# "binary chain" cases (e.g. sfw pnpm ...) and direct binary cases
 # (e.g. task ...) — `command <bin>` is a no-op pass-through for binaries
 # that don't have function/alias overrides.
 _envchain_run() {
@@ -100,20 +100,20 @@ envchain() {
   fi
 }
 
-# --- Wrap: sfw-free + envchain (run user scripts and need network) ---
-pnpm() { _envchain_run sfw-free pnpm "$@"; }
-bun()  { _envchain_run sfw-free bun  "$@"; }
-nr()   { _envchain_run sfw-free nr   "$@"; }
+# --- Wrap: sfw + envchain (run user scripts and need network) ---
+pnpm() { _envchain_run sfw pnpm "$@"; }
+bun()  { _envchain_run sfw bun  "$@"; }
+nr()   { _envchain_run sfw nr   "$@"; }
 
-# --- Wrap: sfw-free only (install / dlx style) ---
-ni()    { sfw-free ni    "$@"; }
-nci()   { sfw-free nci   "$@"; }
-nup()   { sfw-free nup   "$@"; }
-nlx()   { sfw-free nlx   "$@"; }
-pip()   { sfw-free pip   "$@"; }
-uv()    { sfw-free uv    "$@"; }
-uvx()   { sfw-free uvx   "$@"; }
-cargo() { sfw-free cargo "$@"; }
+# --- Wrap: sfw only (install / dlx style) ---
+ni()    { sfw ni    "$@"; }
+nci()   { sfw nci   "$@"; }
+nup()   { sfw nup   "$@"; }
+nlx()   { sfw nlx   "$@"; }
+pip()   { sfw pip   "$@"; }
+uv()    { sfw uv    "$@"; }
+uvx()   { sfw uvx   "$@"; }
+cargo() { sfw cargo "$@"; }
 
 # --- Wrap: envchain only (task runners) ---
 task() { _envchain_run task "$@"; }
