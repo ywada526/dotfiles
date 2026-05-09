@@ -37,8 +37,14 @@ ln -snfv "$DOTFILES_DIR"/shell/.bashrc ~/.bashrc
 ln -snfv "$DOTFILES_DIR"/shell/.bash_profile ~/.bash_profile
 mkdir -p ~/.config/zsh
 ln -snfv "$DOTFILES_DIR"/shell/completions ~/.config/zsh/completions
-ln -snfv "$DOTFILES_DIR"/pnpm/.npmrc ~/.npmrc
-ln -snfv "$DOTFILES_DIR"/bun/.bunfig.toml ~/.bunfig.toml
+ln -snfv "$DOTFILES_DIR"/pkg/.npmrc ~/.npmrc
+ln -snfv "$DOTFILES_DIR"/pkg/.bunfig.toml ~/.bunfig.toml
+ln -snfv "$DOTFILES_DIR"/pkg/.gemrc ~/.gemrc
+mkdir -p ~/.config/uv ~/.config/pip ~/.config/go ~/.cargo
+ln -snfv "$DOTFILES_DIR"/pkg/uv.toml ~/.config/uv/uv.toml
+ln -snfv "$DOTFILES_DIR"/pkg/pip.conf ~/.config/pip/pip.conf
+ln -snfv "$DOTFILES_DIR"/pkg/cargo-config.toml ~/.cargo/config.toml
+ln -snfv "$DOTFILES_DIR"/pkg/go-env ~/.config/go/env
 mkdir -p ~/.codex/rules
 ln -snfv "$DOTFILES_DIR"/codex/AGENTS.md ~/.codex/AGENTS.md
 ln -snfv "$DOTFILES_DIR"/codex/rules/default.rules ~/.codex/rules/default.rules

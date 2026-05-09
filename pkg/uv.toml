@@ -1,0 +1,4 @@
+# 14d cooldown — symmetric with pnpm minimumReleaseAge and bun
+# minimumReleaseAge. Buys time for the community to catch malicious
+# publishes before they land here.
+exclude-newer = "14d"

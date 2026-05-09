@@ -29,7 +29,7 @@ target="${MISE_ORIGINAL_CWD:-$PWD}"
 if [ -n "$target" ] && [ "$target" != "$HOME" ] \
   && [ -f "$target/package.json" ] \
   && [ ! -e "$target/pnpm-workspace.yaml" ]; then
-  cp "$HOME/dotfiles/pnpm/pnpm-workspace.yaml" "$target/pnpm-workspace.yaml"
+  cp "$HOME/dotfiles/mise/pnpm-workspace-template.yaml" "$target/pnpm-workspace.yaml"
   echo "[mise] generated pnpm-workspace.yaml from dotfiles template"
 fi
 '''

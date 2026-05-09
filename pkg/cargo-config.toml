@@ -1,0 +1,12 @@
+# Use the system git CLI (and its credential helper / SSH config) for
+# fetching git deps. Avoids cargo's bundled libgit2 path, which has had
+# auth-handling weak spots historically.
+[net]
+git-fetch-with-cli = true
+
+# Sparse protocol is the default since 1.70 but pin it explicitly:
+# fetches only the index entries actually needed instead of cloning
+# the entire crates.io index, which is both faster and a smaller
+# attack surface.
+[registries.crates-io]
+protocol = "sparse"

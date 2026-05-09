@@ -1,0 +1,13 @@
+# Skip RDoc/RI generation on every install. Cuts time and reduces what
+# gets executed during install — RDoc itself parses gem source.
+gem: --no-document
+
+# Defaults that apply when the corresponding flag is omitted.
+install: --no-document
+update: --no-document
+
+# rubygems.org over HTTPS — explicit. The default is already https,
+# but pinning prevents any tool that adds an http source from
+# silently downgrading.
+:sources:
+  - https://rubygems.org/

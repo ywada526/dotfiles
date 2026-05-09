@@ -1,0 +1,17 @@
+# Go config file consumed by `go env -w` and read whenever the
+# corresponding env var is unset in the process environment.
+# Format: KEY=value, one per line. No comments inside values.
+#
+# Process env still wins over this file — same precedence model as
+# `.npmrc`. Listing values here documents the intended defaults and
+# resets them when a parent process inherited a bad value.
+
+# Default is already "sum.golang.org" — pinning here only resets a
+# bad inherited value (e.g. GOSUMDB=off from /etc/environment) for
+# go invocations that don't have it set in process env.
+GOSUMDB=sum.golang.org
+
+# Default is "auto" — fetches a newer toolchain over the network when
+# go.mod requires one. "local" makes that an error instead, so the
+# toolchain stays exactly what mise installed.
+GOTOOLCHAIN=local

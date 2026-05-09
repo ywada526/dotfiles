@@ -1,7 +1,7 @@
 # security/
 
 Cross-cutting security tooling that isn't ecosystem-specific (compare with
-`pnpm/` which is all about pnpm).
+`pkg/` which holds package-manager-specific config).
 
 ## git-hooks/
 
