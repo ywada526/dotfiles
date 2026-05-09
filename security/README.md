@@ -79,7 +79,15 @@ Cursor / Cline, etc.):
   `.mise.toml` for a fully version-controlled binary.
 - Codex example: see `.codex-config.toml` for the `pnpm dlx` pattern.
 
+## audit/
+
+Composable supply-chain audit scripts. `scan.sh` runs Trivy +
+OSV-Scanner against one path and emits combined JSON; `scan-all.sh`
+iterates over a gitignored `targets` file. Compose with whatever
+runs on top — cron, CI, scheduled agent. See
+[`audit/README.md`](audit/README.md).
+
 ## Out of scope
 
-Periodic / forensic scanning (trufflehog, OSV-scanner, Trivy filesystem
-audits) lives in a separate repo. See the project memory for context.
+Forensic / one-off scanning (trufflehog history sweeps, YARA-based
+analysis) — done ad-hoc, not wired into this directory.

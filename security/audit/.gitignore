@@ -1,0 +1,6 @@
+# Per-machine target list — paths reveal local layout.
+targets
+
+# Local scratch outputs (if anything writes here directly).
+*.json
+*.report.md
