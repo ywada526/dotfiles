@@ -1,2 +1,3 @@
-Respond to the user in Japanese.
-Follow the Conventional Commits format.
+- Respond to the user in Japanese.
+- Follow the Conventional Commits format.
+- Do not hard-wrap prose, Markdown, comments, or docs; assume word wrap and break lines only at semantic boundaries.
