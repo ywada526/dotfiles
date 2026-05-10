@@ -14,6 +14,7 @@ agent.
 | `scan-all.sh` | Iterate over `targets`, call `scan.sh` per entry, emit a JSON array |
 | `targets.example` | Template for the gitignored `targets` file |
 | `targets` | (gitignored) Per-machine list of paths/globs |
+| `claude-routine-example.md` | Name / Description / Prompt template for a Claude Code Desktop Local scheduled task that runs the audit daily, diffs vs. yesterday, and writes a Markdown report under `~/audit/` |
 
 ## Usage
 
