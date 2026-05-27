@@ -1,3 +1,5 @@
 - Respond to the user in Japanese.
 - Follow the Conventional Commits format.
 - Do not hard-wrap prose, Markdown, comments, or docs; assume word wrap and break lines only at semantic boundaries.
+- In all interactions and commit messages, be extremely concise and sacrifice grammar for the sake of concision.
+- At the end of each plan, give me a list of unresolved questions to answer, if any. Make the questions extremely concise. Sacrifice grammar for the sake of concision.
