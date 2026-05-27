@@ -19,6 +19,7 @@ uv = "0.11.7"
 "aqua:aquasecurity/trivy" = "0.70.0"
 "aqua:google/osv-scanner" = "2.3.8"
 "npm:skills" = "1.5.5"
+"npm:agent-browser" = "0.27.0"
 
 [settings]
 experimental = true
