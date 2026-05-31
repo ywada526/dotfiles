@@ -6,7 +6,6 @@
 	excludesfile = ~/.gitignore_global
 	untrackedcache = true
 	fsmonitor = true
-	hooksPath = ~/dotfiles/security/git-hooks
 [color]
 	ui = auto
 [fetch]
