@@ -1,9 +1,7 @@
 {
   "permissions": {
     "ask": [
-      "Bash(sudo:*)",
-      "Bash(git push:*)",
-      "Bash(gh pr create:*)"
+      "Bash(sudo:*)"
     ],
     "defaultMode": "auto"
   },
