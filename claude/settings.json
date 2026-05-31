@@ -8,5 +8,20 @@
   "theme": "auto",
   "skipAutoPermissionPrompt": true,
   "agentPushNotifEnabled": true,
-  "inputNeededNotifEnabled": true
+  "inputNeededNotifEnabled": true,
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume",
+        "hooks": [
+          {
+            "_comment": "Sync working branch with the remote on session start. Runs inside the worktree (created before the session starts). Syncs the current branch to its own upstream — origin/main for a fresh worktree, else the branch's own remote.",
+            "type": "command",
+            "command": "git rev-parse --abbrev-ref --symbolic-full-name @{u} >/dev/null 2>&1 || exit 0; out=$(git pull --ff-only 2>&1); printf '{\"systemMessage\": %s}' \"$(printf 'git pull --ff-only:\\n%s' \"$out\" | jq -Rsa .)\"",
+            "statusMessage": "Syncing branch with remote..."
+          }
+        ]
+      }
+    ]
+  }
 }
