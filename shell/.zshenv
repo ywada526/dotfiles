@@ -3,10 +3,9 @@
 # every bash entry point funnels through the same file.
 export BASH_ENV="$HOME/.bashrc"
 
-# Block / wrap package manager and task runner calls (force pnpm,
-# sfw-free wrap, envchain wrap).
+# Block / wrap package manager calls (force pnpm, sfw-free wrap).
 # Functions are not inherited across exec(), so .zshenv must redefine
 # them for every zsh invocation (login, interactive, non-interactive,
 # scripts). Heavier login-only setup (brew shellenv, PATH prepends)
 # lives in .zprofile so subshells don't pay that cost.
-. "$HOME/dotfiles/security/hooks.sh"
+. "$HOME/dotfiles/shell/package-guards.sh"

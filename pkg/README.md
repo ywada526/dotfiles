@@ -21,9 +21,7 @@ specifics.
 
 ## Supply chain coverage by package manager
 
-Status as actually configured in this repo. npm is excluded because
-shell functions in [`../security/hooks.sh`](../security/hooks.sh)
-block the binary entirely; pnpm replaces it.
+Status as actually configured in this repo. npm is excluded because shell functions in [`../shell/package-guards.sh`](../shell/package-guards.sh) block the binary entirely; pnpm replaces it.
 
 Legend:
 **✓** native + configured (or not applicable) · **△** partial · **✗** no support
@@ -71,6 +69,4 @@ in `pip.conf`.
   mirroring what's set per-tool in this directory. Also holds
   `pnpm-workspace-template.yaml` (copied into projects by the enter
   hook) — see [`../mise/README.md`](../mise/README.md).
-- [`../security/hooks.sh`](../security/hooks.sh) — shell wrappers
-  that block `npm`/`yarn`/`corepack` and route `pnpm`/`bun`/`pip`/
-  `uv`/`cargo` through `sfw`.
+- [`../shell/package-guards.sh`](../shell/package-guards.sh) — shell wrappers that block `npm`/`yarn`/`corepack` and route `pnpm`/`bun`/`pip`/`uv`/`cargo` through `sfw`.

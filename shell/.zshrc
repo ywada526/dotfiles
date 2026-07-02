@@ -32,6 +32,7 @@ fi
 
 (( $+commands[sheldon] )) && eval "$(sheldon source)"
 (( $+commands[zoxide] )) && eval "$(zoxide init zsh)"
+(( $+commands[tirith] )) && eval "$(tirith init --shell zsh)"
 
 # zsh-defer is provided by sheldon; defer non-prompt-critical inits so the
 # first prompt appears immediately and these load shortly after.
