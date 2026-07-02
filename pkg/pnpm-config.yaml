@@ -1,0 +1,14 @@
+savePrefix: ""
+
+# Hard-fail install if a dep needs an unapproved build script.
+strictDepBuilds: true
+
+# Skip versions younger than 14 days (in minutes).
+minimumReleaseAge: 20160
+
+# Reject installing a less-trusted version than previously seen.
+trustPolicy: no-downgrade
+trustPolicyExclude: []
+
+# Block transitive deps from exotic sources (git/tarball).
+blockExoticSubdeps: true

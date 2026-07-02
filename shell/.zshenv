@@ -4,7 +4,5 @@
 export BASH_ENV="$HOME/.bashrc"
 
 # Wrap package manager calls via Safe Chain when setup has installed its
-# shell integration. Reapply local policy guards afterwards so npm/npx/yarn
-# stay disabled even though Safe Chain supports them.
+# shell integration.
 . "$HOME/.safe-chain/scripts/init-posix.sh"
-. "$HOME/dotfiles/shell/package-guards.sh"

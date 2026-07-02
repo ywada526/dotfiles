@@ -2,9 +2,9 @@
 # corresponding env var is unset in the process environment.
 # Format: KEY=value, one per line. No comments inside values.
 #
-# Process env still wins over this file — same precedence model as
-# `.npmrc`. Listing values here documents the intended defaults and
-# resets them when a parent process inherited a bad value.
+# Process env still wins over this file. Listing values here documents
+# the intended defaults and resets them when a parent process inherited
+# a bad value.
 
 # Default is already "sum.golang.org" — pinning here only resets a
 # bad inherited value (e.g. GOSUMDB=off from /etc/environment) for

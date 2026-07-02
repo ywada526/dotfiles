@@ -6,7 +6,8 @@ name in this directory; the symlink target keeps the canonical name.
 
 | Source | Symlink target | Tool |
 |---|---|---|
-| `.npmrc` | `~/.npmrc` | npm/pnpm (npm-format config) |
+| `.npmrc` | `~/.npmrc` | npm (INI config) |
+| `pnpm-config.yaml` | `~/.config/pnpm/config.yaml` | pnpm (YAML config) |
 | `.bunfig.toml` | `~/.bunfig.toml` | bun |
 | `.gemrc` | `~/.gemrc` | RubyGems |
 | `uv.toml` | `~/.config/uv/uv.toml` | uv (Python) |
@@ -21,14 +22,15 @@ specifics.
 
 ## Supply chain coverage by package manager
 
-Status as actually configured in this repo. npm is excluded because shell functions in [`../shell/package-guards.sh`](../shell/package-guards.sh) block the binary entirely; pnpm replaces it.
+Status as actually configured in this repo. npm settings live in `~/.npmrc`; pnpm settings live in YAML at `~/.config/pnpm/config.yaml`. pnpm reads auth/registry settings from `.npmrc`, but other pnpm settings belong in YAML config.
 
 Legend:
 **✓** native + configured (or not applicable) · **△** partial · **✗** no support
 
 | PM | Lifecycle script disable | Cooldown (release age) | Version pin | Lockfile injection | Package takeover |
 |---|---|---|---|---|---|
-| **pnpm** | ✓ pnpm v10+ blocks by default; `onlyBuiltDependencies: []` enforces empty allowlist | ✓ `minimumReleaseAge: 14d` set; Safe Chain also blocks too-new npm releases | ✓ `savePrefix: ""` + `pnpm-lock.yaml` + `--frozen-lockfile` | ✓ structurally resistant — won't install anything not in `package.json` | ✓ `trustPolicy: no-downgrade` set; cross-checks provenance / OIDC / registry signature |
+| **npm** | ✓ `allow-scripts=` + `strict-allow-scripts=true` suppress unapproved lifecycle scripts | ✓ `min-release-age=14` set; Safe Chain also blocks too-new npm releases | ✓ `save-exact=true` + `package-lock.json` + `npm ci` | △ `package-lock.json` is weaker than pnpm's structural model | ✗ no native consumer-side trust policy |
+| **pnpm** | ✓ pnpm v10+ blocks by default; `strictDepBuilds: true` hard-fails unapproved build scripts | ✓ `minimumReleaseAge: 14d` set; Safe Chain also blocks too-new npm releases | ✓ `savePrefix: ""` + `pnpm-lock.yaml` + `--frozen-lockfile` | ✓ structurally resistant — won't install anything not in `package.json` | ✓ `trustPolicy: no-downgrade` set; cross-checks provenance / OIDC / registry signature |
 | **bun** | ✓ `ignoreScripts = true` set | ✓ `minimumReleaseAge = 14d` set; Safe Chain also blocks too-new npm releases | ✓ `exact = true` + `bun.lock` + `--frozen-lockfile` | △ less ecosystem analysis than npm/pnpm | ✗ no equivalent feature |
 | **uv** | ✓ PEP 517 isolated builds (arbitrary code possible but contained) | ✓ `exclude-newer = "14d"` set; Safe Chain also blocks too-new PyPI releases | ✓ `uv.lock` carries hashes | ✓ hash-pinned lock is hard to inject | △ PEP 740 attestations exist on PyPI side; uv client-side auto-verify still rolling out |
 | **pip** | ✓ `only-binary = :all:` set — skips sdist build hooks | ✓ Safe Chain blocks too-new PyPI releases | ✓ enforced per-project via `==` + `--require-hashes` in requirements files | ✓ `--require-hashes` strongly resistant when used | △ PEP 740 attestations exist; pip client-side auto-verify still rolling out |
@@ -40,7 +42,7 @@ Remaining gaps in this configuration:
 
 - **bun lockfile injection**: bun's lockfile-lint ecosystem is thin.
   Audit lockfile diffs in PRs as a process control instead.
-- **bun takeover, cargo takeover**: no native consumer-side trust
+- **npm takeover, bun takeover, cargo takeover**: no native consumer-side trust
   policy. Closest available defense is `aqua:` for installs and
   cooldown for new releases.
 - **cargo lifecycle, gem lifecycle**: ecosystem-level — `build.rs`
@@ -56,7 +58,4 @@ The pattern: ecosystems built around binary distribution (Go) or consumer-policy
 
 - [`../mise/`](../mise/) — toolchain version management. Sets
   `minimum_release_age = "14d"` globally for mise's own backends,
-  mirroring what's set per-tool in this directory. Also holds
-  `pnpm-workspace-template.yaml` (copied into projects by the enter
-  hook) — see [`../mise/README.md`](../mise/README.md).
-- [`../shell/package-guards.sh`](../shell/package-guards.sh) — shell policy guards that block `npm`/`yarn`/`corepack`; Safe Chain's setup script wraps supported npm/PyPI package managers.
+  mirroring what's set per-tool in this directory — see [`../mise/README.md`](../mise/README.md).

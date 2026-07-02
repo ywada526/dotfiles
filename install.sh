@@ -38,6 +38,8 @@ ln -snfv "$DOTFILES_DIR"/shell/.bash_profile ~/.bash_profile
 mkdir -p ~/.config/zsh
 ln -snfv "$DOTFILES_DIR"/shell/completions ~/.config/zsh/completions
 ln -snfv "$DOTFILES_DIR"/pkg/.npmrc ~/.npmrc
+mkdir -p ~/.config/pnpm
+ln -snfv "$DOTFILES_DIR"/pkg/pnpm-config.yaml ~/.config/pnpm/config.yaml
 ln -snfv "$DOTFILES_DIR"/pkg/.bunfig.toml ~/.bunfig.toml
 ln -snfv "$DOTFILES_DIR"/pkg/.gemrc ~/.gemrc
 mkdir -p ~/.config/uv ~/.config/pip ~/.config/go ~/.cargo
