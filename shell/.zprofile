@@ -10,5 +10,11 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 [[ -f /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.local/share/mise/shims:$PATH"
+path=(
+  "$HOME/.safe-chain/shims"
+  "$HOME/.safe-chain/bin"
+  "$HOME/.local/bin"
+  "$HOME/.local/share/mise/shims"
+  $path
+)
+export PATH
