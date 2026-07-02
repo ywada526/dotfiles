@@ -3,9 +3,8 @@
 # every bash entry point funnels through the same file.
 export BASH_ENV="$HOME/.bashrc"
 
-# Block / wrap package manager calls (force pnpm, sfw-free wrap).
-# Functions are not inherited across exec(), so .zshenv must redefine
-# them for every zsh invocation (login, interactive, non-interactive,
-# scripts). Heavier login-only setup (brew shellenv, PATH prepends)
-# lives in .zprofile so subshells don't pay that cost.
+# Wrap package manager calls via Safe Chain when setup has installed its
+# shell integration. Reapply local policy guards afterwards so npm/npx/yarn
+# stay disabled even though Safe Chain supports them.
+. "$HOME/.safe-chain/scripts/init-posix.sh"
 . "$HOME/dotfiles/shell/package-guards.sh"

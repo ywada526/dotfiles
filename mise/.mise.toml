@@ -12,7 +12,7 @@ uv = "0.11.7"
 "npm:@antfu/ni" = "30.0.0"
 "aqua:openai/codex" = "0.142.5"
 "aqua:biomejs/biome" = "2.4.8"
-"npm:sfw" = "2.0.4"
+"npm:@aikidosec/safe-chain" = "1.5.12"
 "cargo:tirith" = "0.3.2"
 "aqua:rustsec/rustsec/cargo-audit" = "0.22.1"
 "aqua:EmbarkStudios/cargo-deny" = "0.19.4"
@@ -23,7 +23,7 @@ uv = "0.11.7"
 experimental = true
 idiomatic_version_file_enable_tools = ["node", "ruby"]
 minimum_release_age = "14d"
-# npm/npx are blocked by shell function hooks (security/hooks.sh) —
+# npm/npx are blocked by shell package guards —
 # route mise's npm: backend through pnpm so installs still work.
 npm.package_manager = "pnpm"
 pin = true
