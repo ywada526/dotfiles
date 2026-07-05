@@ -86,8 +86,6 @@ if [ "${DROPBOX_DIR%/}" != "${EXPECTED_DROPBOX_DIR%/}" ]; then
 else
   ln -snfv "$HOME/Library/CloudStorage/Dropbox/settings/macnative/LocalDictionary" ~/Library/Spelling/LocalDictionary
   ln -snfv "$HOME/Library/CloudStorage/Dropbox/settings/zsh/.zsh_history" ~/.zsh_history
-  ln -snfv "$HOME/Library/CloudStorage/Dropbox/settings/homebrew/.Brewfile" ~/.Brewfile
-  ln -snfv "$HOME/Library/CloudStorage/Dropbox/settings/homebrew/.Brewfile.lock.json" ~/.Brewfile.lock.json
   mkdir -p ~/.config
   rsync -a --delete "$HOME/Library/CloudStorage/Dropbox/settings/karabiner/" "$HOME/.config/karabiner/"
 fi
