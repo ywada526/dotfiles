@@ -12,7 +12,6 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 path=(
   "$HOME/.safe-chain/shims"
-  "$HOME/.safe-chain/bin"
   "$HOME/.local/bin"
   "$HOME/.local/share/mise/shims"
   $path

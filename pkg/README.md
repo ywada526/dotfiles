@@ -34,7 +34,7 @@ Legend:
 | **bun** | ✓ `ignoreScripts = true` set | ✓ `minimumReleaseAge = 14d` set; Safe Chain also blocks too-new npm releases | ✓ `exact = true` + `bun.lock` + `--frozen-lockfile` | △ less ecosystem analysis than npm/pnpm | ✗ no equivalent feature |
 | **uv** | ✓ PEP 517 isolated builds (arbitrary code possible but contained) | ✓ `exclude-newer = "14d"` set; Safe Chain also blocks too-new PyPI releases | ✓ `uv.lock` carries hashes | ✓ hash-pinned lock is hard to inject | △ PEP 740 attestations exist on PyPI side; uv client-side auto-verify still rolling out |
 | **pip** | ✓ `only-binary = :all:` set — skips sdist build hooks | ✓ Safe Chain blocks too-new PyPI releases | ✓ enforced per-project via `==` + `--require-hashes` in requirements files | ✓ `--require-hashes` strongly resistant when used | △ PEP 740 attestations exist; pip client-side auto-verify still rolling out |
-| **cargo** | ✗ `build.rs` has no opt-out; mitigate via `cargo-audit` / `cargo-deny` (installed via mise) | ✗ no native (third-party `cargo-cooldown` only) | ✓ `Cargo.lock` + `--locked` | ✓ `Cargo.lock` carries checksums | ✗ no native signing; RustSec advisories + Trusted Publishing (limited rollout) |
+| **cargo** | ✗ `build.rs` has no broad consumer-side opt-out | ✗ no native (third-party `cargo-cooldown` only) | ✓ `Cargo.lock` + `--locked` | ✓ `Cargo.lock` carries checksums | ✗ no native signing; RustSec advisories are checked by external audit tools |
 | **go** | ✓ no install-time script mechanism exists in Go | ✗ no native (would require proxy like Athens) | ✓ `go.mod` (MVS) + `go.sum` | ✓ `sum.golang.org` transparency log auto-verifies on `go get` | ✓ `GOSUMDB=sum.golang.org` + `GOTOOLCHAIN=local` set in `go-env` |
 | **gem (RubyGems)** | ✗ `extconf.rb` / pre/post install hooks have no opt-out; mitigate via `bundler-audit` (per-project) | ✗ no native | ✓ enforced per-project via `Gemfile.lock` + `bundle install --frozen` | △ injection reported (similar mechanic to npm) | ✗ gem signing exists but is not used in practice |
 
@@ -47,7 +47,7 @@ Remaining gaps in this configuration:
   cooldown for new releases.
 - **cargo lifecycle, gem lifecycle**: ecosystem-level — `build.rs`
   and `extconf.rb` have no opt-out at the package-manager level.
-  Caught at audit time (`cargo-audit`, `bundler-audit`) instead.
+  Caught at audit time by external tools instead.
 - **cargo cooldown, go cooldown, gem cooldown**: no native support.
   Org-level proxies (Athens, Nexus Firewall) would address this
   but are out of scope for a developer machine config.

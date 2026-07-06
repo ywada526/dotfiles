@@ -59,16 +59,8 @@ defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 ## Install Priority Apps
 
 ```sh
-brew install ghq; brew install --cask 1password codex dropbox google-chrome \
-  karabiner-elements raycast slack visual-studio-code
-```
-
-## Claude Code
-
-Native installer (self-updating, kept outside Homebrew).
-
-```sh
-curl -fsSL https://claude.ai/install.sh | bash
+brew install ghq
+brew install --cask 1password dropbox google-chrome karabiner-elements raycast slack visual-studio-code
 ```
 
 ## Link to Dropbox Settings
