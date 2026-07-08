@@ -5,6 +5,7 @@
     ],
     "defaultMode": "auto"
   },
+  "model": "claude-fable-5[1m]",
   "statusLine": {
     "type": "command",
     "command": "bash \"$HOME/.claude/statusline.sh\""
@@ -23,6 +24,18 @@
       }
     ]
   },
+  "enabledPlugins": {
+    "crit@crit": true
+  },
+  "extraKnownMarketplaces": {
+    "crit": {
+      "source": {
+        "source": "github",
+        "repo": "tomasz-tomczyk/crit"
+      }
+    }
+  },
+  "tui": "fullscreen",
   "autoMemoryEnabled": false,
   "theme": "auto",
   "verbose": true,
