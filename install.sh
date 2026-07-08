@@ -51,6 +51,7 @@ ln -snfv "$DOTFILES_DIR"/codex/rules/default.rules ~/.codex/rules/default.rules
 mkdir -p ~/.claude/skills
 ln -snfv "$DOTFILES_DIR"/claude/CLAUDE.md ~/.claude/CLAUDE.md
 ln -snfv "$DOTFILES_DIR"/claude/settings.json ~/.claude/settings.json
+ln -snfv "$DOTFILES_DIR"/claude/statusline.sh ~/.claude/statusline.sh
 ln -snfv "$DOTFILES_DIR"/claude/skills/pr ~/.claude/skills/pr
 mkdir -p ~/.config/ghostty
 ln -snfv "$DOTFILES_DIR"/ghostty/config.ghostty ~/.config/ghostty/config.ghostty
