@@ -6,10 +6,6 @@
     "defaultMode": "auto"
   },
   "model": "claude-fable-5[1m]",
-  "statusLine": {
-    "type": "command",
-    "command": "bash \"$HOME/.claude/statusline.sh\""
-  },
   "hooks": {
     "SessionStart": [
       {
@@ -23,6 +19,10 @@
         ]
       }
     ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash \"$HOME/.claude/statusline.sh\""
   },
   "enabledPlugins": {
     "crit@crit": true
@@ -41,5 +41,6 @@
   "verbose": true,
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "skipWorkflowUsageWarning": true
 }
