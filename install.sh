@@ -57,6 +57,8 @@ mkdir -p ~/.config/ghostty
 ln -snfv "$DOTFILES_DIR"/ghostty/config.ghostty ~/.config/ghostty/config.ghostty
 mkdir -p ~/.config/cmux
 ln -snfv "$DOTFILES_DIR"/cmux/cmux.json ~/.config/cmux/cmux.json
+mkdir -p ~/.config/herdr
+ln -snfv "$DOTFILES_DIR"/herdr/config.toml ~/.config/herdr/config.toml
 
 # Local / private overrides (optional)
 DOTFILES_LOCAL_DIR="${DOTFILES_LOCAL_DIR:-$HOME/ghq/github.com/ywada526/dotfiles.local}"

@@ -1,0 +1,10 @@
+# herdr configuration
+# https://herdr.dev/docs/
+
+onboarding = false
+
+[keys]
+prefix = "ctrl+space"
+
+[ui.toast]
+delivery = "herdr"
