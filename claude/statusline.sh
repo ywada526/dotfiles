@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Claude Code status line: "dir (branch) | +N -M | ↑ahead ↓behind | model | 12.3k (10%)"
+# Claude Code status line: "dir (branch) | +N -M | ↑ahead ↓behind | model (effort) | 12.3k (10%)"
 # dir is always the project directory's basename (not the full path). In a
 # worktree, it's the main worktree's basename, prefixed with "[worktree]".
 # Reads the statusLine JSON payload from stdin (see https://code.claude.com/docs/en/statusline).
@@ -17,10 +17,11 @@ c_red=$'\033[91m'
 # Pull every field in one jq call instead of re-parsing $input per field.
 # Fields are joined with \x1f (not tab) because bash's `read` collapses
 # consecutive IFS-whitespace delimiters, which would misalign empty fields.
-IFS=$'\x1f' read -r raw_dir model tokens used <<<"$(jq -r '
+IFS=$'\x1f' read -r raw_dir model effort tokens used <<<"$(jq -r '
   [
     (.workspace.current_dir // .cwd // ""),
     (.model.display_name // ""),
+    (.effort.level // ""),
     (((.context_window.total_input_tokens // 0) + (.context_window.total_output_tokens // 0)) as $t
       | if $t > 0 then ($t | tostring) else "" end),
     (.context_window.used_percentage // "" | tostring)
@@ -97,10 +98,13 @@ if [ "$ahead" -gt 0 ] || [ "$behind" -gt 0 ]; then
   [ "$behind" -gt 0 ] && sync="${sync:+$sync }${c_red}↓${behind}${c_reset}"
 fi
 
+model_label="$model"
+[ -n "$model_label" ] && [ -n "$effort" ] && model_label="$model_label ($effort)"
+
 parts=("$loc")
 [ -n "$diffstat" ] && parts+=("$diffstat")
 [ -n "$sync" ] && parts+=("$sync")
-[ -n "$model" ] && parts+=("${c_model}${model}${c_reset}")
+[ -n "$model_label" ] && parts+=("${c_model}${model_label}${c_reset}")
 [ -n "$ctx" ] && parts+=("$ctx")
 
 output=""
