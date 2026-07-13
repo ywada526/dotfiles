@@ -25,7 +25,8 @@
     "command": "bash \"$HOME/.claude/statusline.sh\""
   },
   "enabledPlugins": {
-    "crit@crit": true
+    "crit@crit": true,
+    "skill-creator@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "crit": {
@@ -35,12 +36,13 @@
       }
     }
   },
+  "awaySummaryEnabled": false,
   "tui": "fullscreen",
   "autoMemoryEnabled": false,
+  "skipWorkflowUsageWarning": true,
   "theme": "auto",
   "verbose": true,
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true,
-  "skipWorkflowUsageWarning": true
+  "skipAutoPermissionPrompt": true
 }
