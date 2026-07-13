@@ -25,16 +25,7 @@
     "command": "bash \"$HOME/.claude/statusline.sh\""
   },
   "enabledPlugins": {
-    "crit@crit": true,
     "skill-creator@claude-plugins-official": true
-  },
-  "extraKnownMarketplaces": {
-    "crit": {
-      "source": {
-        "source": "github",
-        "repo": "tomasz-tomczyk/crit"
-      }
-    }
   },
   "awaySummaryEnabled": false,
   "tui": "fullscreen",
