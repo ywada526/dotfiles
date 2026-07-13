@@ -3,6 +3,7 @@
 	name = ywada526
 [core]
 	editor = vim
+	pager = hunk pager
 	excludesfile = ~/.gitignore_global
 	untrackedcache = true
 	fsmonitor = true
@@ -15,40 +16,16 @@
 	autostash = true
 [pull]
 	rebase = true
-[diff]
-	tool = vscode
-[difftool "vscode"]
-	cmd = code --wait --diff $LOCAL $REMOTE
-	prompt = false
-[merge]
-	tool = vscode
-[mergetool "vscode"]
-	cmd = code --wait $MERGED
-	prompt = false
-[pager]
-	diff = delta
-	log = delta
-	reflog = delta
-	show = delta
 [rerere]
 	enabled = true
 [init]
 	defaultBranch = main
-[delta]
-	plus-style = "syntax #012800"
-	minus-style = "syntax #340001"
-	syntax-theme = Monokai Extended
-	navigate = true
-	line-numbers = true
-	side-by-side = true
-[interactive]
-	diffFilter = delta --color-only
-[alias]
-	tidy = !git fetch --prune && BRANCH=$(git branch --show-current) && git switch $(git symbolic-ref --short refs/remotes/origin/HEAD | sed \"s|^origin/||\") && git branch -D \"$BRANCH\" && git pull
-	cleanup = !git branch --merged | sed \"s/^\\* //\" | grep -Ev \"^($(git symbolic-ref --short refs/remotes/origin/HEAD | sed \"s|^origin/||\"))$\" | xargs git branch -D
 [credential "https://github.com"]
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [url "https://github.com/"]
 	insteadOf = git@github.com:
+[alias]
+	tidy = !git fetch --prune && BRANCH=$(git branch --show-current) && git switch $(git symbolic-ref --short refs/remotes/origin/HEAD | sed \"s|^origin/||\") && git branch -D \"$BRANCH\" && git pull
+	cleanup = !git branch --merged | sed \"s/^\\* //\" | grep -Ev \"^($(git symbolic-ref --short refs/remotes/origin/HEAD | sed \"s|^origin/||\"))$\" | xargs git branch -D
