@@ -18,16 +18,17 @@ keybind = cmd+z=text:\x1f
 # Shift+Enter sends Meta+Enter (ESC+CR) — newline without submit in CLIs that support it
 keybind = shift+enter=text:\x1b\r
 
-# Cmd+Opt+Left/Right to move between tabs
-# (Karabiner remaps Cmd+Opt+H/L into these arrow combos)
-keybind = cmd+opt+arrow_left=previous_tab
-keybind = cmd+opt+arrow_right=next_tab
-
-# Meta+hjkl to move between split panes
-keybind = alt+h=goto_split:left
-keybind = alt+j=goto_split:bottom
-keybind = alt+k=goto_split:top
-keybind = alt+l=goto_split:right
+# Herdr owns these shortcuts for its own tab/workspace/split navigation, so
+# Ghostty must not intercept them and should pass the raw key through.
+# (Karabiner's "タブ移動" rule remaps Cmd+Opt+H/L to these bracket combos in
+# every app except Ghostty, where the raw keys reach Herdr untouched.)
+keybind = cmd+shift+[=unbind
+keybind = cmd+shift+]=unbind
+keybind = cmd+n=unbind
+keybind = cmd+t=unbind
+keybind = cmd+d=unbind
+keybind = shift+cmd+d=unbind
+keybind = cmd+w=unbind
 
 # Split pane visibility
 unfocused-split-fill = #000000

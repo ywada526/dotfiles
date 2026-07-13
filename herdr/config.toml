@@ -6,6 +6,26 @@ onboarding = false
 [keys]
 prefix = "ctrl+space"
 
+# Pane focus movement (direct, no prefix).
+focus_pane_left = "alt+h"
+focus_pane_down = "alt+j"
+focus_pane_up = "alt+k"
+focus_pane_right = "alt+l"
+
+# Workspace movement (direct, no prefix).
+previous_workspace = "alt+cmd+k"
+next_workspace = "alt+cmd+j"
+
+# Tab movement (direct, no prefix).
+previous_tab = "alt+cmd+h"
+next_tab = "alt+cmd+l"
+
+new_workspace = "cmd+n"
+new_tab = "cmd+t"
+split_vertical = "cmd+d"
+split_horizontal = "shift+cmd+d"
+close_pane = "cmd+w"
+
 [ui.toast]
 delivery = "herdr"
 
