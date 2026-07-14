@@ -1,3 +1,3 @@
 - Respond to the user in Japanese.
-- Do not hard-wrap prose, Markdown, comments, or docs; assume word wrap and break lines only at semantic boundaries.
-- Do not write redundant code comments that merely restate what the code already shows; reserve comments for intent, constraints, or non-obvious behavior.
+- When writing Markdown or prose, put each paragraph on a single line. Never insert a line break in the middle of a sentence or paragraph.
+- Write code comments only when they state something the code cannot show: intent, a constraint, or non-obvious behavior. Never write comments that narrate this session (e.g. "switched from A to B as requested"); a comment must make sense to a future reader who never saw this session.
