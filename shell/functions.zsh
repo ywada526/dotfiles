@@ -5,7 +5,7 @@ c() { if [ $# -eq 0 ]; then zi; else z "$@"; fi }
 gc() {
   local schema='{"type":"object","properties":{"commit_message":{"type":"string","description":"A git commit message in imperative mood, Conventional Commits format"}},"required":["commit_message"],"additionalProperties":false}'
   git diff --cached \
-    | codex exec --ephemeral -m gpt-5.6-luna --dangerously-bypass-approvals-and-sandbox -c model_reasoning_effort=low --output-schema <(print -r -- "$schema") --json "Write a Conventional Commits message for this diff, imperative mood." \
+    | codex exec --ephemeral --dangerously-bypass-approvals-and-sandbox -m gpt-5.6-luna -c model_reasoning_effort=low --output-schema <(print -r -- "$schema") --json "Write a Conventional Commits message for this diff, imperative mood." \
     | jq -rs 'map(select(.type == "item.completed" and .item.type == "agent_message"))[-1].item.text | fromjson | .commit_message' \
     | git commit -F -
 }
