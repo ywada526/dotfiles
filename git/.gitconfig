@@ -6,7 +6,6 @@
 	pager = hunk pager
 	excludesfile = ~/.gitignore_global
 	untrackedcache = true
-	fsmonitor = true
 [color]
 	ui = auto
 [fetch]
