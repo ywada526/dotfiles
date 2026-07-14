@@ -1,4 +1,3 @@
 - Respond to the user in Japanese.
-- Follow the Conventional Commits format.
 - Do not hard-wrap prose, Markdown, comments, or docs; assume word wrap and break lines only at semantic boundaries.
 - Do not write redundant code comments that merely restate what the code already shows; reserve comments for intent, constraints, or non-obvious behavior.
