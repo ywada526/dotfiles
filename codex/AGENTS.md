@@ -1,3 +1,0 @@
-- Respond to the user in Japanese.
-- When writing Markdown or prose, put each paragraph on a single line. Never insert a line break in the middle of a sentence or paragraph.
-- Write code comments only when they state something the code cannot show: intent, a constraint, or non-obvious behavior. Never write comments that narrate this session (e.g. "switched from A to B as requested"); a comment must make sense to a future reader who never saw this session.
