@@ -9,3 +9,15 @@ gc() {
     | jq -rs 'map(select(.type == "item.completed" and .item.type == "agent_message"))[-1].item.text | fromjson | .commit_message' \
     | git commit -F -
 }
+
+# Delete local branches merged into the current branch, removing their linked worktrees first.
+gx() {
+  git fetch --prune
+  git worktree prune
+  local b wt
+  for b in $(git branch --merged | sed "s/^[*+] //" | grep -Ev "^($(git symbolic-ref --short refs/remotes/origin/HEAD | sed "s|^origin/||"))$"); do
+    wt=$(git worktree list --porcelain | grep -B2 "branch refs/heads/$b$" | head -1 | cut -d" " -f2)
+    [ -n "$wt" ] && git worktree remove "$wt"
+    git branch -D "$b"
+  done
+}
