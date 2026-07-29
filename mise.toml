@@ -1,0 +1,81 @@
+# Machine bootstrap. Apply with `mise bootstrap`, or one part at a time
+# (e.g. `mise bootstrap macos defaults apply`). Every section converges:
+# `mise bootstrap status` reports drift without changing anything.
+
+# Symlinks into $HOME and ~/.config, keyed by target. Sources are relative to
+# this file. Intermediate directories are created as needed. `symlink` is the
+# default mode; a directory source gets one link for the whole directory.
+[dotfiles]
+"~/.Brewfile" = "homebrew/.Brewfile"
+"~/.bunfig.toml" = "pkg/.bunfig.toml"
+"~/.cargo/config.toml" = "pkg/cargo-config.toml"
+"~/.config/ghostty/config.ghostty" = "ghostty/config.ghostty"
+"~/.config/go/env" = "pkg/go-env"
+"~/.config/herdr/config.toml" = "herdr/config.toml"
+"~/.config/mise/config.toml" = "mise/.mise.toml"
+"~/.config/pip/pip.conf" = "pkg/pip.conf"
+"~/.config/pnpm/config.yaml" = "pkg/pnpm-config.yaml"
+"~/.config/sheldon/plugins.toml" = "shell/plugins.toml"
+"~/.config/uv/uv.toml" = "pkg/uv.toml"
+"~/.config/zsh/completions" = "shell/completions"
+"~/.gemrc" = "pkg/.gemrc"
+"~/.gitconfig" = "git/.gitconfig"
+"~/.gitignore_global" = "git/.gitignore_global"
+"~/.npmrc" = "pkg/.npmrc"
+"~/.tmux.conf" = "tmux/.tmux.conf"
+"~/.vimrc" = "vim/.vimrc"
+"~/.zprofile" = "shell/.zprofile"
+"~/.zshrc" = "shell/.zshrc"
+
+[bootstrap.macos.trackpad]
+tap_to_click = true
+# May require logout/reboot to take effect.
+three_finger_drag = true
+
+[bootstrap.macos.keyboard]
+key_repeat = 2
+initial_key_repeat = 15
+# Prefer key repeat over the accent popup.
+press_and_hold = false
+
+[bootstrap.macos.finder]
+show_all_files = true
+show_pathbar = true
+preferred_view_style = "list"
+
+[bootstrap.macos.dock]
+autohide = true
+
+# Preferences with no friendly-section equivalent.
+
+[bootstrap.macos.defaults.NSGlobalDomain]
+"com.apple.mouse.tapBehavior" = 1
+# Tracking speed; 3.0 is the maximum the UI slider offers.
+"com.apple.trackpad.scaling" = 3.0
+# Full keyboard navigation: Tab moves focus between all controls.
+AppleKeyboardUIMode = 3
+NSAutomaticWindowAnimationsEnabled = false
+NSWindowResizeTime = 0.001
+
+# Click pressure: 0 = Light, 1 = Medium, 2 = Firm.
+[bootstrap.macos.defaults."com.apple.AppleMultitouchTrackpad"]
+FirstClickThreshold = 0
+SecondClickThreshold = 0
+
+[bootstrap.macos.defaults."com.apple.driver.AppleBluetoothMultitouch.trackpad"]
+FirstClickThreshold = 0
+SecondClickThreshold = 0
+
+# Effectively stops the Dock from re-appearing on hover.
+[bootstrap.macos.defaults."com.apple.dock"]
+autohide-delay = 1000.0
+autohide-time-modifier = 0.0
+
+[bootstrap.hooks]
+# mise does not support `defaults -currentHost`, and deliberately never kills
+# applications itself. cfprefsd must be flushed or it writes stale plist values
+# back over these changes at logout.
+post-defaults = [
+  "defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1",
+  "killall cfprefsd Dock Finder >/dev/null 2>&1 || true",
+]

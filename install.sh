@@ -10,47 +10,28 @@ case $(uname) in
     (! type sheldon &>/dev/null 2>&1) &&
       curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh \
         | sudo bash -s -- --repo rossmacarthur/sheldon --to /usr/local/bin
+    (! type mise &>/dev/null 2>&1) &&
+      curl --proto '=https' -fLsS https://mise.run \
+        | sudo MISE_INSTALL_PATH=/usr/local/bin/mise sh
     ;;
   "Darwin" )
     if ! type brew &>/dev/null 2>&1; then
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       eval "$(/opt/homebrew/bin/brew shellenv)"
-      brew install sheldon mise fzf zoxide carapace
     fi
+    # Not guarded by the block above: an existing Homebrew does not imply these
+    # are installed, and mise is required for the bootstrap step below.
+    brew install sheldon mise fzf zoxide carapace
     ;;
   *) exit 1;;
 esac
 
 DOTFILES_DIR=$(cd "$(dirname "$0")" && pwd)
-ln -snfv "$DOTFILES_DIR"/homebrew/.Brewfile ~/.Brewfile
-ln -snfv "$DOTFILES_DIR"/git/.gitconfig ~/.gitconfig
-ln -snfv "$DOTFILES_DIR"/git/.gitignore_global ~/.gitignore_global
-mkdir -p ~/.config/sheldon
-ln -snfv "$DOTFILES_DIR"/shell/plugins.toml ~/.config/sheldon/plugins.toml
-ln -snfv "$DOTFILES_DIR"/tmux/.tmux.conf ~/.tmux.conf
-mkdir -p ~/.config/mise
-ln -snfv "$DOTFILES_DIR"/mise/.mise.toml ~/.config/mise/config.toml
-ln -snfv "$DOTFILES_DIR"/vim/.vimrc ~/.vimrc
-ln -snfv "$DOTFILES_DIR"/shell/.zprofile ~/.zprofile
-ln -snfv "$DOTFILES_DIR"/shell/.zshrc ~/.zshrc
-mkdir -p ~/.config/zsh
-ln -snfv "$DOTFILES_DIR"/shell/completions ~/.config/zsh/completions
-ln -snfv "$DOTFILES_DIR"/pkg/.npmrc ~/.npmrc
-mkdir -p ~/.config/pnpm
-ln -snfv "$DOTFILES_DIR"/pkg/pnpm-config.yaml ~/.config/pnpm/config.yaml
-ln -snfv "$DOTFILES_DIR"/pkg/.bunfig.toml ~/.bunfig.toml
-ln -snfv "$DOTFILES_DIR"/pkg/.gemrc ~/.gemrc
-mkdir -p ~/.config/uv ~/.config/pip ~/.config/go ~/.cargo
-ln -snfv "$DOTFILES_DIR"/pkg/uv.toml ~/.config/uv/uv.toml
-ln -snfv "$DOTFILES_DIR"/pkg/pip.conf ~/.config/pip/pip.conf
-ln -snfv "$DOTFILES_DIR"/pkg/cargo-config.toml ~/.cargo/config.toml
-ln -snfv "$DOTFILES_DIR"/pkg/go-env ~/.config/go/env
-mkdir -p ~/.config/ghostty
-ln -snfv "$DOTFILES_DIR"/ghostty/config.ghostty ~/.config/ghostty/config.ghostty
-mkdir -p ~/.config/cmux
-ln -snfv "$DOTFILES_DIR"/cmux/cmux.json ~/.config/cmux/cmux.json
-mkdir -p ~/.config/herdr
-ln -snfv "$DOTFILES_DIR"/herdr/config.toml ~/.config/herdr/config.toml
+
+# Symlinks are declared in [dotfiles] in mise.toml. `--only dotfiles` skips the
+# rest of the bootstrap sequence, which stays opt-in via a bare `mise bootstrap`.
+mise trust "$DOTFILES_DIR"
+mise -C "$DOTFILES_DIR" bootstrap --only dotfiles --yes
 
 # Local / private overrides (optional)
 DOTFILES_LOCAL_DIR="${DOTFILES_LOCAL_DIR:-$HOME/ghq/github.com/ywada526/dotfiles.local}"
