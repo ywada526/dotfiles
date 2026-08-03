@@ -5,6 +5,8 @@
 # Symlinks into $HOME and ~/.config, keyed by target. Sources are relative to
 # this file. Intermediate directories are created as needed. `symlink` is the
 # default mode; a directory source gets one link for the whole directory.
+# `~/.npmrc` is deliberately absent: it carries private-registry auth tokens, so
+# install.sh seeds it from pkg/.npmrc.template instead of linking it here.
 [dotfiles]
 "~/.Brewfile" = "homebrew/.Brewfile"
 "~/.bunfig.toml" = "pkg/.bunfig.toml"
@@ -21,7 +23,6 @@
 "~/.gemrc" = "pkg/.gemrc"
 "~/.gitconfig" = "git/.gitconfig"
 "~/.gitignore_global" = "git/.gitignore_global"
-"~/.npmrc" = "pkg/.npmrc"
 "~/.tmux.conf" = "tmux/.tmux.conf"
 "~/.vimrc" = "vim/.vimrc"
 "~/.zprofile" = "shell/.zprofile"

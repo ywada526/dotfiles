@@ -4,9 +4,9 @@ Per-package-manager config files. Flat layout — one file per tool.
 Generic filenames (`config.toml`, `env`) are prefixed with the tool
 name in this directory; the symlink target keeps the canonical name.
 
-| Source | Symlink target | Tool |
+| Source | Target | Tool |
 |---|---|---|
-| `.npmrc` | `~/.npmrc` | npm (INI config) |
+| `.npmrc.template` | `~/.npmrc` (copied, not linked) | npm (INI config) |
 | `pnpm-config.yaml` | `~/.config/pnpm/config.yaml` | pnpm (YAML config) |
 | `.bunfig.toml` | `~/.bunfig.toml` | bun |
 | `.gemrc` | `~/.gemrc` | RubyGems |
@@ -19,6 +19,12 @@ Common theme across these files: supply-chain hardening defaults
 (release-age cooldown, install-script blocking, registry pinning,
 checksum verification). See each file's inline comments for the
 specifics.
+
+`~/.npmrc` is the one entry that is not symlinked. Private registries keep
+their auth tokens there (`//npm.pkg.github.com/:_authToken=...`) and this
+repo is public, so only a template is tracked. `install.sh` copies it on a
+fresh machine and never overwrites an existing file; token lines are appended
+locally and stay out of version control.
 
 ## Supply chain coverage by package manager
 

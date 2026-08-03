@@ -33,6 +33,14 @@ DOTFILES_DIR=$(cd "$(dirname "$0")" && pwd)
 mise trust "$DOTFILES_DIR"
 mise -C "$DOTFILES_DIR" bootstrap --only dotfiles --yes
 
+# ~/.npmrc is copied, not symlinked: private registries put their auth tokens
+# there (`//registry/:_authToken=...`), and this repo is public. Seed it once
+# from the template; never overwrite an existing file, or the tokens are lost.
+if [ ! -e "$HOME/.npmrc" ]; then
+  cp "$DOTFILES_DIR/pkg/.npmrc.template" "$HOME/.npmrc"
+  chmod 600 "$HOME/.npmrc"
+fi
+
 # Local / private overrides (optional)
 DOTFILES_LOCAL_DIR="${DOTFILES_LOCAL_DIR:-$HOME/ghq/github.com/ywada526/dotfiles.local}"
 if [ -x "$DOTFILES_LOCAL_DIR/install.sh" ]; then
