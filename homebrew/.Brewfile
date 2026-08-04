@@ -30,6 +30,7 @@ brew "rjyo/moshi/moshi-hook", trusted: true
 brew "ni"
 brew "pngpaste"
 brew "poppler"
+brew "f1bonacc1/tap/process-compose", trusted: true
 brew "rclone"
 brew "redis"
 brew "ripgrep"
