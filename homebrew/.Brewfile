@@ -24,8 +24,6 @@ brew "kustomize"
 brew "mas"
 brew "mise"
 brew "moreutils"
-brew "mosh"
-brew "rjyo/moshi/moshi-hook", trusted: true
 brew "ni"
 brew "pngpaste"
 brew "poppler"
