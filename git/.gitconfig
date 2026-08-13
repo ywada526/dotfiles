@@ -3,7 +3,6 @@
 	name = ywada526
 [core]
 	editor = vim
-	pager = hunk pager
 	excludesfile = ~/.gitignore_global
 	untrackedcache = true
 [color]

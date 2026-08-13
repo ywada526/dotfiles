@@ -17,7 +17,6 @@ brew "ghq"
 brew "git"
 brew "git-lfs"
 brew "gnupg"
-brew "modem-dev/tap/hunk", trusted: true
 brew "herdr"
 brew "jq"
 brew "kubectx"
