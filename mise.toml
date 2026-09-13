@@ -55,6 +55,8 @@ autohide = true
 "com.apple.trackpad.scaling" = 3.0
 # Full keyboard navigation: Tab moves focus between all controls.
 AppleKeyboardUIMode = 3
+# Use F1-F12 as standard function keys; hold fn for brightness/media actions.
+"com.apple.keyboard.fnState" = true
 NSAutomaticWindowAnimationsEnabled = false
 NSWindowResizeTime = 0.001
 
