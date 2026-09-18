@@ -81,4 +81,8 @@ autohide-time-modifier = 0.0
 post-defaults = [
   "defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1",
   "killall cfprefsd Dock Finder >/dev/null 2>&1 || true",
+  # Stop rcd from launching Music.app on media-key events (e.g. AirPods
+  # disconnect). Re-enable with `launchctl enable gui/$UID/com.apple.rcd`.
+  "launchctl disable gui/$(id -u)/com.apple.rcd",
+  "launchctl bootout gui/$(id -u)/com.apple.rcd >/dev/null 2>&1 || true",
 ]
