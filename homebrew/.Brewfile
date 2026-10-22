@@ -51,7 +51,6 @@ npm "@aikidosec/safe-chain"
 
 cask "1password"
 cask "1password-cli"
-cask "alt-tab"
 cask "caffeine"
 cask "claude"
 cask "claude-code"
